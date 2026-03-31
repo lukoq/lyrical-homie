@@ -81,16 +81,15 @@ def process_lyrics():
             if not lyrics: continue
 
             clean_text = clean_rap_lyrics(lyrics)
-
             chunks = split_rap_by_lines(clean_text, chunk_lines=4, overlap_lines=2)
 
             for i, chunk in enumerate(chunks):
-                enriched_content = f"Wykonawca: {artist}\nUtwór: {title}\nTekst:\n{chunk}"
+                vector_content = f"passage: {chunk}"
 
-                safe_id = f"{artist}_{title}_{i}".replace(" ", "_").replace("/", "_")
+                safe_id = f"{artist}_{title}_{i}".replace(" ", "_").replace("/", "_").lower()
 
                 collection.add(
-                    documents=[enriched_content],
+                    documents=[vector_content],
                     metadatas=[{
                         "artist": artist,
                         "title": title,
