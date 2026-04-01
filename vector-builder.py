@@ -4,6 +4,7 @@ import re
 from pathlib import Path
 from huggingface_hub import login
 from dotenv import load_dotenv
+from langdetect import detect_langs
 
 load_dotenv()
 HF_TOKEN = os.getenv("HF_TOKEN")
@@ -61,6 +62,19 @@ def split_rap_by_lines(text, chunk_lines=4, overlap_lines=2):
     return chunks
 
 
+
+def is_valid_polish(chunk):
+    try:
+        langs = detect_langs(chunk)
+
+        for lang in langs:
+            if lang.lang == 'pl' and lang.prob > 0.4:
+                return True
+        return False
+    except:
+        return False
+
+
 def process_lyrics():
     files = [f for f in os.listdir(INPUT_DIR) if f.endswith('.json')]
 
@@ -84,8 +98,13 @@ def process_lyrics():
             chunks = split_rap_by_lines(clean_text, chunk_lines=4, overlap_lines=2)
 
             for i, chunk in enumerate(chunks):
-                vector_content = f"passage: {chunk}"
 
+                if not is_valid_polish(chunk): # Reject non polish verses
+                    print(chunk)
+                    continue
+
+
+                vector_content = f"passage: {chunk}"
                 safe_id = f"{artist}_{title}_{i}".replace(" ", "_").replace("/", "_").lower()
 
                 collection.add(
