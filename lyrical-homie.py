@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 import chromadb
 import numpy as np
@@ -17,11 +18,11 @@ collection = client.get_collection(name="polish_rap_lyrics")
 def get_lyrics_context(user_input, hypothetical_rap):
     results_hyde = collection.query(
         query_texts=[hypothetical_rap],
-        n_results=10
+        n_results=30
     )
     results_user = collection.query(
         query_texts=[user_input],
-        n_results=10
+        n_results=30
     )
 
     all_docs = []
@@ -46,7 +47,9 @@ def get_lyrics_context(user_input, hypothetical_rap):
     for idx in best_indices:
         doc = all_docs[idx]
         meta = all_metas[idx]
-        context += f"[{meta['artist']} - {meta['title']}]: {doc}\n---\n"
+        clean_doc = doc.replace("passage: ", "").strip()
+        context += f"[{meta['artist']} - {meta['title']}]\n{clean_doc}\n---\n"
+        context += f"Wynik: {scores[idx]:.4f} \n\n"
 
     return context
 
@@ -54,47 +57,57 @@ def get_lyrics_context(user_input, hypothetical_rap):
 
 
 def lyrical_chat(user_input):
-    hyde_prompt = (
-        f"Napisz krótkie, 2-wersowe nawinięcie w stylu polskiego rapu, "
-        f"które pasuje do sytuacji: '{user_input}'. "
-        f"Ma to być w stylu chwytliwego tekstu. Możesz użyć wulgaryzmów."
-        f"Napisz SAME rymy, bez żadnych wstępów czy komentarzy."
+    hyde_system_instructions = (
+        "Jesteś systemem, który zamienia zdanie użytkownika na cztery uliczne wersy polskiego rapu.\n"
+        "ZASADA 1: Napisz DOKŁADNIE CZTERY wersy.\n"
+        "ZASADA 2: Nie dodawaj absolutnie żadnych wstępów.\n"
+        "ZASADA 3: Nie numeruj wersów.\n"
+        "ZASADA 4: Od razu zacznij pisać rymy."
     )
 
     hyde_response = ollama.chat(
         model='SpeakLeash/bielik-11b-v2.3-instruct:Q4_K_M',
-        messages=[{'role': 'user', 'content': hyde_prompt}],
-        options={'temperature': 0.7}
+        messages=[
+            {'role': 'system', 'content': hyde_system_instructions},
+            {'role': 'user', 'content': user_input},
+        ],
+        options={
+            'temperature': 0.5,
+            'stop': ['<|im_id|>', '<|im_end|>', '<|im_sep|>']
+        }
     )
 
     hypothetical_rap = hyde_response['message']['content'].strip()
     context = get_lyrics_context(user_input, hypothetical_rap)
 
+    print(hypothetical_rap)
+    print(context)
+
     system_instruction = (
         "Jesteś 'Lyrical Homie'. Odpowiadasz WYŁĄCZNIE cytatami z polskiego rapu.\n\n"
-        "ZASADY:\n"
-        "1. WYBIERZ DWA WERSY (linijki) z jednego, najbardziej trafnego utworu.\n"
-        "2. MUSISZ ODPOWIADAĆ TYLKO W JĘZYKU POLSKIM. Ignoruj teksty słowackie, czeskie lub angielskie, nawet jeśli są w bazie.\n"
-        "3. WYPLUWAJ TYLKO CZYSTY TEKST CYTATU. Zero komentarza, zero tytułu, zero wykonawcy.\n"
-        "4. FORMAT: Linijka 1\nLinijka 2"
+        "INSTRUKCJA:\n"
+        "1. Otrzymasz poniżej kilka cytatów z polskiego rapu i 1 opis sytuacji ziomka.\n"
+        "2. Wybierz TYLKO JEDEN cytat, który najlepiej odnosi się do opisanej sytuacji.\n"
+        "3. Upewnij się, że wybrany cytat stanowi logiczną ODPOWIEDŹ na problem ziomka.\n"
+        "4. IGNORUJ metadane w nawiasach kwadratowych (np. autor i tytuł)"
+        "5. NIE PISZ absolutnie nic więcej. Żadnych wstępów, pozdrowień ani własnych komentarzy."
     )
 
     prompt = (
-        f"SYTUACJA ZIOMKA: {user_input}\n\n"
-        f"DOSTĘPNE WERSY Z BAZY:\n{context}\n\n"
-        "Wybierz najbardziej trafny tekst z bazy do sytuacji ziomka z powyższego zdania. "
-        "Wytnij z niego dwie linijki/wersy najbardziej odpowiadające sytuacji ziomka."
+        f"OPIS SYTUACJI ZIOMKA: {user_input}\n\n" 
+        f"DOSTĘPNE CYTATY Z BAZY:\n{context}\n\n"
+        "Sformułuj swoją odpowiedź wybierając odpowiedni fragment z bazy, dokładnie według wytycznych z INSTRUKCJI."
     )
 
     response = ollama.chat(
-        model='SpeakLeash/bielik-11b-v2.3-instruct:Q4_K_M',
+        model='qwen2.5:7b-instruct',
         messages=[
             {'role': 'system', 'content': system_instruction},
             {'role': 'user', 'content': prompt},
         ],
         options={
-            'temperature': 0.1,
-            'top_p': 0.9
+            'temperature': 0.0,
+            'stop': ['<|im_id|>', '<|im_end|>', '<|im_sep|>']
         }
     )
 
@@ -107,4 +120,5 @@ if __name__ == "__main__":
         if user_msg.lower() in ['exit', 'quit', 'pa']: break
 
         reply = lyrical_chat(user_msg)
-        print(f"\nLyrical Homie: {reply}\n")
+        clean_reply = result = re.sub(r"\[.*?\]", "", reply)
+        print(f"\nLyrical Homie:\n{clean_reply}\n")
