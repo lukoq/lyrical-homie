@@ -31,7 +31,8 @@ except:
 
 collection = client.create_collection(
     name="polish_rap_lyrics",
-    embedding_function=polish_ef
+    embedding_function=polish_ef,
+    metadata={"hnsw:space": "cosine"}
 )
 
 
@@ -43,21 +44,34 @@ def clean_rap_lyrics(text):
 
 
 def split_rap_by_lines(text, chunk_lines=4, overlap_lines=2):
-    lines = [line.strip() for line in text.split('\n') if line.strip()]
+    blocks = re.split(r'\n\s*\n', text.strip())
 
     chunks = []
     step = chunk_lines - overlap_lines
 
-    if len(lines) <= chunk_lines:
-        return ["\n".join(lines)] if lines else []
+    for block in blocks:
+        lines = [line.strip() for line in block.split('\n') if line.strip()]
 
-    for i in range(0, len(lines), step):
-        chunk_group = lines[i:i + chunk_lines]
-        chunk_text = "\n".join(chunk_group)
-        chunks.append(chunk_text)
+        if not lines:
+            continue
 
-        if i + chunk_lines >= len(lines):
-            break
+        if lines[0].startswith('[') and lines[0].endswith(']'):
+            lines = lines[1:]
+
+        if not lines:
+            continue
+
+        if len(lines) <= chunk_lines:
+            chunks.append("\n".join(lines))
+            continue
+
+        for i in range(0, len(lines), step):
+            chunk_group = lines[i:i + chunk_lines]
+            chunk_text = "\n".join(chunk_group)
+            chunks.append(chunk_text)
+
+            if i + chunk_lines >= len(lines):
+                break
 
     return chunks
 
