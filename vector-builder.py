@@ -19,7 +19,8 @@ DATABASE_PATH = BASE_DIR / "vector_db"
 
 
 polish_ef = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name="sdadas/mmlw-e5-base"
+    model_name="sdadas/mmlw-e5-base",
+    device="cpu"
 )
 
 client = chromadb.PersistentClient(path=str(DATABASE_PATH))
@@ -43,38 +44,39 @@ def clean_rap_lyrics(text):
     return text.strip()
 
 
-def split_rap_by_lines(text, chunk_lines=4, overlap_lines=2):
+# Splitting verse by lines as a child and parent (Parent-Document Retrieval)
+def split_rap_by_lines(text, child_lines=2, parent_context_lines=2):
     blocks = re.split(r'\n\s*\n', text.strip())
-
-    chunks = []
-    step = chunk_lines - overlap_lines
+    chunks_data = []
 
     for block in blocks:
         lines = [line.strip() for line in block.split('\n') if line.strip()]
 
-        if not lines:
-            continue
-
-        if lines[0].startswith('[') and lines[0].endswith(']'):
+        if lines and lines[0].startswith('[') and lines[0].endswith(']'):
             lines = lines[1:]
 
         if not lines:
             continue
 
-        if len(lines) <= chunk_lines:
-            chunks.append("\n".join(lines))
-            continue
+        for i in range(0, len(lines), child_lines):
+            child_group = lines[i:i + child_lines]
+            child_text = "\n".join(child_group)
 
-        for i in range(0, len(lines), step):
-            chunk_group = lines[i:i + chunk_lines]
-            chunk_text = "\n".join(chunk_group)
-            chunks.append(chunk_text)
+            if not child_text.strip():
+                continue
 
-            if i + chunk_lines >= len(lines):
-                break
+            start_idx = max(0, i - parent_context_lines)
+            end_idx = min(len(lines), i + child_lines + parent_context_lines)
 
-    return chunks
+            parent_group = lines[start_idx:end_idx]
+            parent_text = "\n".join(parent_group)
 
+            chunks_data.append({
+                "child": child_text,
+                "parent": parent_text
+            })
+
+    return chunks_data
 
 
 def is_valid_polish(chunk):
@@ -106,31 +108,41 @@ def process_lyrics():
             title = song.get('title')
             lyrics = song.get('lyrics')
 
-            if not lyrics: continue
+            if not lyrics:
+                continue
 
             clean_text = clean_rap_lyrics(lyrics)
-            chunks = split_rap_by_lines(clean_text, chunk_lines=4, overlap_lines=2)
+            chunks = split_rap_by_lines(clean_text)
 
-            for i, chunk in enumerate(chunks):
+            docs_batch = []
+            metas_batch = []
+            ids_batch = []
 
-                if not is_valid_polish(chunk): # Reject non polish verses
-                    print(chunk)
+            for i, data in enumerate(chunks):
+                child_text = data["child"]
+                parent_text = data["parent"]
+
+                if not is_valid_polish(parent_text): # Reject non polish verses
                     continue
 
-
-                vector_content = f"passage: {chunk}"
+                docs_batch.append(f"passage: {child_text}")
+                metas_batch.append({
+                    "artist": artist,
+                    "title": title,
+                    "chunk_id": i,
+                    "parent_text": parent_text
+                })
                 safe_id = f"{artist}_{title}_{i}".replace(" ", "_").replace("/", "_").lower()
+                ids_batch.append(safe_id)
 
+            if docs_batch:
                 collection.add(
-                    documents=[vector_content],
-                    metadatas=[{
-                        "artist": artist,
-                        "title": title,
-                        "source": "Genius",
-                        "chunk_id": i
-                    }],
-                    ids=[safe_id]
+                    documents=docs_batch,
+                    metadatas=metas_batch,
+                    ids=ids_batch
                 )
+
+
 if __name__ == "__main__":
     process_lyrics()
-    print("Vector Database created with Polish context!")
+    print("Vector Database has been created with Polish context!")
