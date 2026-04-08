@@ -2,6 +2,8 @@ import os
 import json
 import re
 from pathlib import Path
+
+import ollama
 from huggingface_hub import login
 from dotenv import load_dotenv
 from langdetect import detect_langs
@@ -36,6 +38,42 @@ collection = client.create_collection(
     metadata={"hnsw:space": "cosine"}
 )
 
+
+def generate_metadata_tags(text):
+    prompt = (
+        "Jesteś analitykiem. Twoim jedynym zadaniem jest wyciągnięcie maksymalnie 5 słów kluczowych "
+        "z poniższego tekstu. Używaj oficjalnych, słownikowych pojęć. Zwróć plik JSON z jednym kluczem 'tags'.\n\n"
+        f"Tekst:\n{text}"
+    )
+
+    try:
+        response = ollama.generate(
+            model='SpeakLeash/bielik-11b-v2.3-instruct:Q4_K_M',
+            prompt=prompt,
+            format='json',
+            options={'temperature': 0.0}
+        )
+
+        data = json.loads(response['response'])
+
+        tags_list = data.get('tags', [])
+        raw_string = ", ".join(tags_list).lower()
+
+        if "tagi:" in raw_string:
+            raw_string = raw_string.split("tagi:")[-1]
+
+        if "zwrócone" in raw_string:
+            raw_string = raw_string.replace("zwrócone", "")
+
+        bad_chars = ["[", "]", "tekst:", "słowa kluczowe:"]
+        for char in bad_chars:
+            raw_string = raw_string.replace(char, "")
+
+        return raw_string.strip()
+
+    except Exception as e:
+        print(f"   [Błąd LLM: {e}]")
+        return ""
 
 def clean_rap_lyrics(text):
     text = text.split('Lyrics', 1)[-1]
@@ -125,12 +163,21 @@ def process_lyrics():
                 if not is_valid_polish(parent_text): # Reject non polish verses
                     continue
 
-                docs_batch.append(f"passage: {child_text}")
+                tags = generate_metadata_tags(parent_text)
+
+                if tags:
+                    enriched_child = f"passage: [Tagi: {tags}] {child_text}"
+                    enriched_parent = f"[Kontekst: {tags}]\n{parent_text}"
+                else:
+                    enriched_child = f"passage: {child_text}"
+                    enriched_parent = parent_text
+
+                docs_batch.append(f"passage: {enriched_child}")
                 metas_batch.append({
                     "artist": artist,
                     "title": title,
                     "chunk_id": i,
-                    "parent_text": parent_text
+                    "parent_text": enriched_parent
                 })
                 safe_id = f"{artist}_{title}_{i}".replace(" ", "_").replace("/", "_").lower()
                 ids_batch.append(safe_id)
