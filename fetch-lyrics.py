@@ -10,18 +10,20 @@ BASE_DIR = Path(__file__).parent
 
 
 GENIUS_TOKEN = os.getenv("GENIUS_TOKEN")
-OUTPUT_DIR = BASE_DIR / "lyrics"
-ARTISTS_TO_DOWNLOAD = ["Oki", "Białas", "Żabson", "Pezet",
-                       "Bedoes", "Zbuku", "Kaen", "Sentino",
-                       "Malik-montana", "Diho", "Mata", "TEDE",
-                        "Ostr", "Molesta", "Sokół", "Quebonafide",
-                        "Taco Hemingway", "Ras", "Peja", "ReTo",
-                       "Kaz Balagane", "Belmondo", "Fokus", "Donguralesko",
-                       "Kizo", "Liroy", "Grubson", "Young-igi", "Eis",
-                       "Hemp-gru", "Wwo", "Zip-skad", "Ten Typ Mes",
-                       "Fisz", "Paktofonika", "Gruby-mielzky", "Dwa-sawy"]
+OUTPUT_DIR = BASE_DIR / "lyrics" / "artists"
+'''
+ARTISTS_TO_DOWNLOAD = ["Białas", "Żabson", "Pezet", "TEDE", "Ostr", "Quebonafide",  
+                        "Taco Hemingway", "Peja", "Kaz Balagane", "Donguralesko",
+                       ]
 
-genius = lyricsgenius.Genius(GENIUS_TOKEN)
+'''
+
+ARTISTS_TO_DOWNLOAD = [ ''' YOUR LIST OF ARTISTS ''']
+genius = lyricsgenius.Genius(
+    GENIUS_TOKEN,
+    timeout=20,
+    retries=3
+)
 genius.remove_section_headers = False
 genius.skip_non_songs = True
 genius.excluded_terms = ["(Remix)", "(Live)"]
