@@ -18,6 +18,8 @@ from chromadb.utils import embedding_functions
 BASE_DIR = Path(__file__).parent
 INPUT_DIR = BASE_DIR / "lyrics"
 DATABASE_PATH = BASE_DIR / "vector_db"
+REGISTRY_PATH = INPUT_DIR / "local_metadata_registry.json"
+ARTISTS_DIR = INPUT_DIR / "artists"
 
 
 polish_ef = embedding_functions.SentenceTransformerEmbeddingFunction(
@@ -39,7 +41,7 @@ collection = client.create_collection(
 )
 
 
-def generate_metadata_tags(text):
+def generate_metadata_tags(text): # For local use
     prompt = (
         "Jesteś analitykiem. Twoim jedynym zadaniem jest wyciągnięcie maksymalnie 5 słów kluczowych "
         "z poniższego tekstu. Używaj oficjalnych, słownikowych pojęć. Zwróć plik JSON z jednym kluczem 'tags'.\n\n"
@@ -129,11 +131,75 @@ def is_valid_polish(chunk):
         return False
 
 
-def process_lyrics():
-    files = [f for f in os.listdir(INPUT_DIR) if f.endswith('.json')]
+def build_metadata_registry(): # Use this script before call process_lyrics_with_tags() to build local_metadata_registry.json file
+
+    INPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    registry = {}
+
+    files = [f for f in os.listdir(ARTISTS_DIR) if f.endswith('.json') and f != "local_metadata_registry.json"]
+
+    if not files:
+        print("Does not found any lyrics in 'lyrics/artists/ directory'.")
+        return
+
+    processed_songs = 0
+    total_chunks = 0
 
     for file_name in files:
         file_path = INPUT_DIR / file_name
+
+        with open(file_path, 'r', encoding='utf-8') as f:
+            try:
+                data = json.load(f)
+            except json.JSONDecodeError:
+                print(f"Decode error: {file_name}")
+                continue
+
+        artist = data.get('name', 'Unknown')
+        songs = data.get('songs', [])
+
+        for song in songs:
+            title = song.get('title')
+            lyrics = song.get('lyrics')
+
+            if not lyrics or not title:
+                continue
+
+            processed_songs += 1
+
+            clean_text = clean_rap_lyrics(lyrics)
+            chunks = split_rap_by_lines(clean_text)
+
+            for i, chunk_data in enumerate(chunks):
+                child_text = chunk_data["child"]
+                parent_text = chunk_data["parent"]
+
+                if not is_valid_polish(parent_text):
+                    continue
+
+                raw_id = f"{artist}_{title}_{i}"
+                safe_id = re.sub(r'[^a-z0-9]', '_', raw_id.lower())
+
+                safe_id = re.sub(r'_+', '_', safe_id).strip('_')
+
+                registry[safe_id] = {
+                    "artist": artist,
+                    "title": title,
+                    "child": child_text,
+                    "parent": parent_text,
+                    "tags": []
+                }
+                total_chunks += 1
+
+        print(f"[+] {artist} ({len(songs)} records)")
+
+
+def process_lyrics(): # OLD METHOD
+    files = [f for f in os.listdir(ARTISTS_DIR) if f.endswith('.json')]
+
+    for file_name in files:
+        file_path = ARTISTS_DIR / file_name
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
@@ -190,6 +256,71 @@ def process_lyrics():
                 )
 
 
+def process_lyrics_with_tags(): # NEW METHOD
+    if not REGISTRY_PATH.exists():
+        print("local_metadata_registry.json has not found!")
+        return
+
+    with open(REGISTRY_PATH, 'r', encoding='utf-8') as f:
+        registry = json.load(f)
+
+    total_records = len(registry)
+    print(f"Found {total_records} records.")
+
+    docs_batch = []
+    metas_batch = []
+    ids_batch = []
+
+    BATCH_SIZE = 2000
+    processed = 0
+
+    for chunk_id, data in registry.items():
+        child_text = data["child"]
+        parent_text = data["parent"]
+        tags = data.get("tags", [])
+
+        if tags:
+            tags_str = ", ".join(tags)
+            doc_text = f"passage: [Tagi: {tags_str}] {child_text}"
+            parent_meta = f"[Kontekst: {tags_str}]\n{parent_text}"
+        else:
+            tags_str = ""
+            doc_text = f"passage: {child_text}"
+            parent_meta = parent_text
+
+        docs_batch.append(doc_text)
+
+        metas_batch.append({
+            "artist": data["artist"],
+            "title": data["title"],
+            "parent_text": parent_meta,
+            "tags": tags_str
+        })
+        ids_batch.append(chunk_id)
+
+        processed += 1
+
+        if len(docs_batch) >= BATCH_SIZE:
+            collection.add(
+                documents=docs_batch,
+                metadatas=metas_batch,
+                ids=ids_batch
+            )
+            print(f"Batch saved: {processed}/{total_records}")
+
+            docs_batch.clear()
+            metas_batch.clear()
+            ids_batch.clear()
+
+    if docs_batch:
+        collection.add(
+            documents=docs_batch,
+            metadatas=metas_batch,
+            ids=ids_batch
+        )
+        print(f"Saved: {processed}/{total_records}")
+
+
 if __name__ == "__main__":
-    process_lyrics()
+    process_lyrics_with_tags()
     print("Vector Database has been created with Polish context!")
