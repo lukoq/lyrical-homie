@@ -1,0 +1,13 @@
+{
+  "foo_boo_example_0": {
+    "artist": "foo",
+    "title": "boo",
+    "child": "Lorem ipsum dolor sit amet",
+    "parent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+    "tags": [
+      "foo",
+      "boo",
+      "example"
+    ]
+  }
+}
