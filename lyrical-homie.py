@@ -16,7 +16,7 @@ class LyricalEngine:
     def classify_intent(self, user_input):
         prompt = (
             "Sklasyfikuj intencję użytkownika do jednej z kategorii: "
-            "[GREETING, SITUATION, QUESTION, SEARCH_TOPIC].\n"
+            "[GREETING, SITUATION, QUESTION, SMALL_TALK, SEARCH_TOPIC].\n"
             "Użyj SEARCH_TOPIC TYLKO wtedy, gdy użytkownik wprost prosi o tekst na konkretny temat "
             "(np. 'Daj jakiś wers o policji', 'Zarzuć tekstem o miłości').\n"
             "Zwróć TYLKO słowo klucz.\n"
@@ -24,6 +24,9 @@ class LyricalEngine:
         )
         response = ollama.generate(model=MODEL_MAIN, prompt=prompt, options={'temperature': 0.0})
         intent = response['response'].strip().upper()
+
+        print(intent)
+
         return intent if intent in ["GREETING", "SITUATION", "QUESTION", "SEARCH_TOPIC"] else "SITUATION"
 
     def extract_search_tag(self, user_input):
@@ -35,36 +38,41 @@ class LyricalEngine:
         response = ollama.generate(model=MODEL_MAIN, prompt=prompt, options={'temperature': 0.0})
         return response['response'].strip().lower()
 
-    def generate_hyde_answer(self, user_input, intent):
-        if intent == "SEARCH_TOPIC":
+    def generate_hyde_answer(self, user_input, intention, tag):
+        if intention == "SEARCH_TOPIC":
             return ""
 
         style_guide = {
             "GREETING": "Odpowiedz jak ziomek na osiedlu, przywitaj się, zapytaj co u niego.",
-            "SITUATION": "Odpowiedz jak starszy brat, daj radę albo skomentuj to w ulicznym stylu.",
-            "QUESTION": "Odpowiedz konkretnie, ale używając slangowych metafor."
+            "SITUATION": f"Odpowiedz jak starszy brat, daj radę albo skomentuj to w ulicznym stylu. Użyj słowa: {tag}",
+            "QUESTION": f"Odpowiedz konkretnie, ale używając slangowych metafor. Użyj słowa: {tag}",
+            "SMALL_TALK": "Odpowiedź jakimś luźnym tekstem nawiązujacym do otrzymanego tekstu."
         }
 
         prompt = (
-            f"Jesteś polskim raperem. {style_guide.get(intent)}\n"
-            "Napisz krótką, 2-wersową odpowiedź rymowaną.\n"
+            "Jesteś polskim raperem.\n"
+            f"Napisz krótką, 2-wersową odpowiedź rymowaną. {style_guide.get(intention)}\n"
+            "Nie dodawaj żadnych swoich wstawek, masz wypluć sam rym.\n"
             f"User powiedział: {user_input}"
         )
 
-        res = ollama.generate(model=MODEL_HELPER, prompt=prompt)
+        res = ollama.generate(
+            model=MODEL_HELPER,
+            prompt=prompt,
+            options={'temperature': 0.8}
+        )
         return res['response'].strip()
 
-    def get_context(self, user_input, hyde_res, intent):
+    def get_context(self, user_input, hyde_res, intention, tag):
         res_hyde, res_orig = None, None
 
-        if intent == "SEARCH_TOPIC":
-            target_tag = self.extract_search_tag(user_input)
-            print(f"   [Szukam konkretnego tagu: {target_tag}]")
+
+        if intention == "SEARCH_TOPIC":
             try:
                 res_orig = self.collection.query(
-                    query_texts=[f"query: {user_input}"],
+                    query_texts=[f"query: {tag}"],
                     n_results=15,
-                    where={"tags": {"$contains": target_tag}}
+                    where={"tags": {"$contains": tag}}
                 )
             except Exception:
                 res_orig = self.collection.query(query_texts=[f"query: {user_input}"], n_results=15)
@@ -160,11 +168,10 @@ if __name__ == "__main__":
         if u_msg.lower() in ['exit', 'pa', 'nara', 'quit']: break
 
         intent = engine.classify_intent(u_msg)
-        hyde_text = engine.generate_hyde_answer(u_msg, intent)
-        top_candidates = engine.get_context(u_msg, hyde_text, intent)
+        target_tag = engine.extract_search_tag(u_msg)
+        hyde_text = engine.generate_hyde_answer(u_msg, intent, target_tag)
+        top_candidates = engine.get_context(u_msg, hyde_text, intent, target_tag)
 
-        print(hyde_text)
-        print(top_candidates)
 
         if top_candidates == "Brak wyników.":
             print("\nLyrical Homie: Sory ziomek, pusta głowa, nie mam do tego rymu.\n")
