@@ -14,7 +14,7 @@ Instead of generating generic responses, the system:
 
 ---
 
-## How It Works
+## The approach taken
 
 ### 1. Data Collection
 
@@ -149,7 +149,7 @@ Final Rap Answer
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * Python
 * ChromaDB
@@ -166,7 +166,7 @@ Final Rap Answer
 
 ---
 
-## 📝 License
+## License
 
 MIT
 
