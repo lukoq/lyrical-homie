@@ -29,9 +29,14 @@ async def main(message: cl.Message):
         await step.update()
         intent = await asyncio.to_thread(engine.classify_intent, u_msg)
 
-        step.output = f"Wyciągam główny temat..."
-        await step.update()
-        target_tag = await asyncio.to_thread(engine.extract_search_tag, u_msg)
+        target_tag = ""
+        if intent in ["SITUATION", "QUESTION", "SEARCH_TOPIC"]:
+            step.output = f"Wyciągam główny temat..."
+            await step.update()
+            target_tag = await asyncio.to_thread(engine.extract_search_tag, u_msg)
+        else:
+            step.output = f"Szukam..."
+            await step.update()
 
         step.output = f"Składam jako {target_tag}..."
         hyde_text = await asyncio.to_thread(engine.generate_hyde_answer, u_msg, intent, target_tag)
@@ -39,13 +44,12 @@ async def main(message: cl.Message):
         step.output = "Przeszukuję archiwum rapu..."
         top_candidates = await asyncio.to_thread(engine.get_context, u_msg, hyde_text, intent, target_tag)
 
-        await step.remove()
+        '''
+        print(f"Wyciągnięte tagi: {target_tag}")
+        print(f"Wygenerowany HyDE:\n{hyde_text}")
+        '''
 
-    source_info = cl.Text(
-        name="Pochdzi z kawałka",
-        content=f"**Autor:** Mobbyn\n\n**Kawałek:** GNOCCHI",
-        display="inline"
-    )
+        await step.remove()
 
     spoiler = (
         f"\n\n"
