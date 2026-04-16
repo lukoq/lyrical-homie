@@ -12,6 +12,11 @@ Instead of generating generic responses, the system:
 * retrieves semantically relevant rap lyrics,
 * and returns the most fitting lines — preserving **authentic style and cultural context**.
 
+<p align="left">
+      <img width="200" height="300" alt="Untitled-1" src="https://github.com/user-attachments/assets/ca92e19a-deea-4d4a-bf2d-0b13a948e36e" />
+      <img width="200" height="300" alt="Untitled-2" src="https://github.com/user-attachments/assets/84e19bb1-0939-4aad-91d9-1049330af3e6" />
+      <img width="200" height="300" alt="Untitled-3" src="https://github.com/user-attachments/assets/14b52572-2977-4fb7-bab9-8a7f91aaf9c8" />
+</p>
 ---
 
 ## The approach taken
@@ -33,7 +38,7 @@ Instead of generating generic responses, the system:
 
 ---
 
-### 3. Metadata Enrichment
+### 3. Metadata Injection
 
 Each verse is enriched with max 5 semantic tags using:
 
