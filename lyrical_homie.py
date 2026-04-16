@@ -27,41 +27,53 @@ class LyricalEngine:
 
         print(intent)
 
-        return intent if intent in ["GREETING", "SITUATION", "QUESTION", "SEARCH_TOPIC"] else "SITUATION"
+        return intent if intent in ["GREETING", "SITUATION", "QUESTION", "SEARCH_TOPIC", "SMALL_TALK"] else "SITUATION"
 
     def extract_search_tag(self, user_input):
         prompt = (
-            "Użytkownik szuka cytatu na konkretny temat. Wyciągnij GŁÓWNY temat jako JEDNO słowo "
-            "(w mianowniku, np. 'miłość', 'policja', 'pieniądze').\n"
+            "Użytkownik opisuje sytuację. Wyciągnij od 1 do maksymalnie 3 najważniejszych słów kluczowych, "
+            "które idealnie opisują ten problem (np. 'dziewczyna', 'rozstanie', 'zdrada').\n"
+            "ZASADY:\n"
+            "1. Używaj TYLKO poprawnych polskich słów (najlepiej rzeczowników w mianowniku).\n"
+            "2. Nie wymyślaj własnych słów, używaj form słownikowych.\n"
+            "3. Zwróć same słowa oddzielone przecinkami.\n"
             f"Tekst: {user_input}"
         )
-        response = ollama.generate(model=MODEL_MAIN, prompt=prompt, options={'temperature': 0.0})
+        response = ollama.generate(model=MODEL_MAIN, prompt=prompt, options={'temperature': 0.1})
         return response['response'].strip().lower()
-
     def generate_hyde_answer(self, user_input, intention, tag):
         if intention == "SEARCH_TOPIC":
             return ""
 
         style_guide = {
-            "GREETING": "Odpowiedz jak ziomek na osiedlu, przywitaj się, zapytaj co u niego.",
-            "SITUATION": f"Odpowiedz jak starszy brat, daj radę albo skomentuj to w ulicznym stylu. Użyj słowa: {tag}",
-            "QUESTION": f"Odpowiedz konkretnie, ale używając slangowych metafor. Użyj słowa: {tag}",
-            "SMALL_TALK": "Odpowiedź jakimś luźnym tekstem nawiązujacym do otrzymanego tekstu."
+            "GREETING": "Przywitaj się jak ziomek z osiedla, zapytaj co u niego.",
+            "SITUATION": f"Udziel mądrej, życiowej porady w stylu polskiego rapu. Temat przewodni: '{tag}'. (WAŻNE: Wpleć sens tego tematu w naturalny rym, NIE wymieniaj tych słów bez sensu po przecinku).",
+            "QUESTION": f"Odpowiedz konkretnie slangowymi metaforami. Temat przewodni: '{tag}'. (WAŻNE: Nie wymieniaj tych słów jako listy, zrób z nich naturalny rym).",
+            "SMALL_TALK": "Odpowiedz luźnym, rapowym wersem nawiązującym do wiadomości."
         }
 
+        chosen_style = style_guide.get(intention, "Napisz luźny, rapowy komentarz do tej sytuacji.")
+
         prompt = (
-            "Jesteś polskim raperem.\n"
-            f"Napisz krótką, 2-wersową odpowiedź rymowaną. {style_guide.get(intention)}\n"
-            "Nie dodawaj żadnych swoich wstawek, masz wypluć sam rym.\n"
-            f"User powiedział: {user_input}"
+            "Jesteś polskim raperem. Twoim zadaniem jest napisanie krótkiego rymu, który posłuży jako wektor wyszukiwania.\n\n"
+            "ZASADY:\n"
+            "1. Napisz DOKŁADNIE DWA wersy.\n"
+            "2. Wersy muszą się rymować na końcu.\n"
+            f"3. STYL: {chosen_style}\n"
+            "4. Zwróć TYLKO sam tekst rymu. Absolutnie żadnych powitań, komentarzy ani słów typu 'Oto mój rym'.\n\n"
+            f"Wypowiedź użytkownika: {user_input}"
         )
 
-        res = ollama.generate(
-            model=MODEL_HELPER,
-            prompt=prompt,
-            options={'temperature': 0.8}
-        )
-        return res['response'].strip()
+        try:
+            res = ollama.generate(
+                model=MODEL_HELPER,
+                prompt=prompt,
+                options={'temperature': 0.6}
+            )
+            return res['response'].strip()
+        except Exception as e:
+            print(f"   [Błąd HyDE: {e}]")
+            return ""
 
     def get_context(self, user_input, hyde_res, intention, tag):
         res_hyde, res_orig = None, None
@@ -116,8 +128,14 @@ class LyricalEngine:
 
         if not candidates: return "Brak wyników."
 
-        query_for_reranker = hyde_res if hyde_res else user_input
+        if hyde_res:
+            query_for_reranker = f"Użytkownik pisze: '{user_input}'. Oczekiwana odpowiedź w stylu: '{hyde_res}'"
+        else:
+            query_for_reranker = user_input
+
         pairs = [[query_for_reranker, c['tagged_parent']] for c in candidates]
+
+
         scores = reranker.predict(pairs)
 
         for idx, score in enumerate(scores):
