@@ -39,14 +39,51 @@ async def main(message: cl.Message):
         step.output = "Przeszukuję archiwum rapu..."
         top_candidates = await asyncio.to_thread(engine.get_context, u_msg, hyde_text, intent, target_tag)
 
+        await step.remove()
+
+    source_info = cl.Text(
+        name="Pochdzi z kawałka",
+        content=f"**Autor:** Mobbyn\n\n**Kawałek:** GNOCCHI",
+        display="inline"
+    )
+
+    spoiler = (
+        f"\n\n"
+        f"Autor: Belmondo\n"
+        f"Kawałek: GNOCCHI"
+    )
+
     if top_candidates == "Brak wyników.":
         reply = "Nie masz dla mnie cashu - nie zawracaj mi gitary"
     else:
         raw_reply = await asyncio.to_thread(engine.final_response, u_msg, top_candidates)
-        cleaned_lines = [
+
+        raw_lines = [
             line.strip().replace(">", "").replace("*", "").replace('"', '')
             for line in raw_reply.split('\n') if line.strip()
         ]
-        reply = "\\\n".join(cleaned_lines)
+        quoted_lines = [f"> {line}" for line in raw_lines]
+        reply = "\n".join(quoted_lines)
+
+        chosen_artist = top_candidates[0]['artist']
+        chosen_title = top_candidates[0]['title']
+
+        if raw_lines:
+            first_line = raw_lines[0].lower()
+            for c in top_candidates[:3]:
+                if first_line in c['parent'].lower():
+                    chosen_artist = c['artist']
+                    chosen_title = c['title']
+                    break
+
+        spoiler = (
+            f"\n\n"
+            f"Autor: {chosen_artist}\n"
+            f"Kawałek: {chosen_title}"
+        )
+
+    reply += spoiler
+
 
     await cl.Message(content=reply).send()
+
