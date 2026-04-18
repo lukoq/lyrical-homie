@@ -1,6 +1,6 @@
 # Lyrical-Homie – Polish Rap RAG Chatbot
 
-> Chatbot that responds **only with Polish rap lyrics** – powered by Retrieval-Augmented Generation (RAG)
+> Chatbot that responds **only with Polish rap lyrics** – powered by Retrieval-Augmented Generation (RAG). The repository serves as a collection of scripts and strategies that I use and test in my project.
 
 ## Overview
 
