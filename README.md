@@ -17,14 +17,13 @@ Instead of generating generic responses, the system:
       <img width="200" height="300" alt="Untitled-2" src="https://github.com/user-attachments/assets/84e19bb1-0939-4aad-91d9-1049330af3e6" />
       <img width="200" height="300" alt="Untitled-3" src="https://github.com/user-attachments/assets/14b52572-2977-4fb7-bab9-8a7f91aaf9c8" />
 </p>
----
 
 ## The approach taken
 
 ### 1. Data Collection
 
-* Scraped 3650 songs from Genius (Polish rap artists)
-* Extracted ~105k lyric lines
+* Scraped `3650` songs from Genius (Polish rap artists)
+* Extracted `104 714` lyric lines
 
 ### 2. Preprocessing
 
