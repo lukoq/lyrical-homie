@@ -282,11 +282,11 @@ def process_lyrics_with_tags(): # NEW METHOD
         if tags:
             tags_str = ", ".join(tags)
             doc_text = f"passage: [Tagi: {tags_str}] {child_text}"
-            parent_meta = f"[Kontekst: {tags_str}]\n{parent_text}"
         else:
             tags_str = ""
             doc_text = f"passage: {child_text}"
-            parent_meta = parent_text
+
+        parent_meta = parent_text
 
         docs_batch.append(doc_text)
 
