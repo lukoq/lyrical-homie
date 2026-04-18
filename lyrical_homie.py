@@ -15,19 +15,27 @@ class LyricalEngine:
 
     def classify_intent(self, user_input):
         prompt = (
-            "Sklasyfikuj intencję użytkownika do jednej z kategorii: "
-            "[GREETING, SITUATION, QUESTION, SMALL_TALK, SEARCH_TOPIC].\n"
-            "Użyj SEARCH_TOPIC TYLKO wtedy, gdy użytkownik wprost prosi o tekst na konkretny temat "
+            "Postaraj się sklasyfikować tekst użytkownika do jednej z poniższych kategorii: "
+            "[GREETING, SITUATION, QUESTION, BRAGGA, SEARCH_TOPIC].\n"
+            "GREETING - powitanie, pozdrowienie lub życzenia.\n"
+            "SITUATION - problem użytkownika, sprawa wymagjąca porady.\n"
+            "QUESTION - pytanie, wątpliwość (wymagany znak zapytania)\n"
+            "BRAGGA - luźny tekst, nie do końca poważny, nie pasujący do żadnej z wyżej wymienionych kategorii.\n"
+            "SEARCH_TOPIC - użyj TYLKO wtedy, gdy użytkownik wprost prosi o tekst na konkretny temat "
             "(np. 'Daj jakiś wers o policji', 'Zarzuć tekstem o miłości').\n"
             "Zwróć TYLKO słowo klucz.\n"
-            f"User: {user_input}"
+            f"Użytkownik napisał: {user_input}"
         )
-        response = ollama.generate(model=MODEL_MAIN, prompt=prompt, options={'temperature': 0.0})
+        response = ollama.generate(
+            model=MODEL_MAIN,
+            prompt=prompt,
+            options={'temperature': 0.0}
+        )
         intent = response['response'].strip().upper()
 
         print(intent)
 
-        return intent if intent in ["GREETING", "SITUATION", "QUESTION", "SEARCH_TOPIC", "SMALL_TALK"] else "SITUATION"
+        return intent if intent in ["GREETING", "SITUATION", "QUESTION", "BRAGGA", "SEARCH_TOPIC"] else "SITUATION"
 
     def extract_search_tag(self, user_input):
         prompt = (
@@ -41,24 +49,31 @@ class LyricalEngine:
         )
         response = ollama.generate(model=MODEL_MAIN, prompt=prompt, options={'temperature': 0.1})
         return response['response'].strip().lower()
+
+
     def generate_hyde_answer(self, user_input, intention, tag):
+
         if intention == "SEARCH_TOPIC":
             return ""
 
         style_guide = {
-            "GREETING": "Przywitaj się jak ziomek z osiedla, zapytaj co u niego.",
-            "SITUATION": f"Udziel mądrej, życiowej porady w stylu polskiego rapu. Temat przewodni: '{tag}'. (WAŻNE: Wpleć sens tego tematu w naturalny rym, NIE wymieniaj tych słów bez sensu po przecinku).",
-            "QUESTION": f"Odpowiedz konkretnie slangowymi metaforami. Temat przewodni: '{tag}'. (WAŻNE: Nie wymieniaj tych słów jako listy, zrób z nich naturalny rym).",
-            "SMALL_TALK": "Odpowiedz luźnym, rapowym wersem nawiązującym do wiadomości."
+            "GREETING": "Powitanie jak ziomek z osiedla, zapytaj co u niego, zarzuć jakieś dobre słowo.",
+            "SITUATION": f"Mądra, życiowa porada. Tak jak staszy brat albo ojciec do syna. Temat przewodni: '{tag}'. "
+                         f"(WAŻNE: Wpleć sens tego tematu w naturalny rym, NIE wymieniaj tych słów bez sensu po przecinku).",
+            "QUESTION": f"Konkretna odpowiedź na pytanie. Użyj rapowych metafor. Temat przewodni: '{tag}'. "
+                        f"(WAŻNE: Nie wymieniaj tych słów jako listy, zrób z nich naturalny rym).",
+            "BRAGGA": "Pochwal się czymś — powiedz, jaki masz zajebisty samochód albo dziewczyne. "
+                      "Jak dużo kosztował twój outfit i ile masz pieniędzy w kieszeni."
         }
 
         chosen_style = style_guide.get(intention, "Napisz luźny, rapowy komentarz do tej sytuacji.")
 
         prompt = (
-            "Jesteś polskim raperem. Twoim zadaniem jest napisanie krótkiego rymu, który posłuży jako wektor wyszukiwania.\n\n"
+            "Jesteś polskim raperem. Twoim zadaniem jest napisanie krótkiego tekstu, który posłuży jako wektor wyszukiwania.\n\n"
             "ZASADY:\n"
-            "1. Napisz DOKŁADNIE DWA wersy.\n"
-            "2. Wersy muszą się rymować na końcu.\n"
+            "1. Napisz DOKŁADNIE DWA krótkie mocne i dosadne zdania.\n"
+            "2. Używaj ulicznego slangu, polskiego rapowego słownictwa.\n"
+            "3. Nie bój się być wulgarny, jeśli sprawa tego wymaga.\n"
             f"3. STYL: {chosen_style}\n"
             "4. Zwróć TYLKO sam tekst rymu. Absolutnie żadnych powitań, komentarzy ani słów typu 'Oto mój rym'.\n\n"
             f"Wypowiedź użytkownika: {user_input}"
@@ -176,6 +191,58 @@ class LyricalEngine:
         )
         return res['message']['content']
 
+    def final_response_post_retrieval(self, user_input, candidates):
+        all_pairs = []
+
+        for c in candidates:
+            lines = [line.strip() for line in c['parent'].split('\n') if line.strip()]
+
+            if len(lines) <= 2:
+                all_pairs.append({
+                    "text": "\n".join(lines),
+                    "artist": c['artist'],
+                    "title": c['title']
+                })
+            else:
+                for i in range(len(lines) - 1):
+                    pair = f"{lines[i]}\n{lines[i + 1]}"
+                    all_pairs.append({
+                        "text": pair,
+                        "artist": c['artist'],
+                        "title": c['title']
+                    })
+
+        unique_pairs_dict = {pair['text']: pair for pair in all_pairs}
+        unique_pairs = list(unique_pairs_dict.values())
+
+        context_str = "\n\n".join([
+            f"OPCJA {i + 1}:\n{p['text']}"
+            for i, p in enumerate(unique_pairs)
+        ])
+
+        system_prompt = (
+            "Jesteś 'Lyrical Homie'. Udzielasz rapowych ripost.\n"
+            "ZASADY:\n"
+            "1. Otrzymujesz listę kilkunastu 2-wersowych opcji.\n"
+            "2. WYBIERZ TYLKO JEDNĄ najlepszą opcję, która idealnie pasuje do słów użytkownika.\n"
+            "3. Zwróć WYŁĄCZNIE DOKŁADNY TEKST wybranej opcji. Żadnych wstępów, numerów opcji, ani komentarzy."
+        )
+
+        user_prompt = (
+            f"Użytkownik mówi: {user_input}\n\n"
+            f"DOSTĘPNE OPCJE DO WYBORU:\n{context_str}"
+        )
+
+        res = ollama.chat(
+            model=MODEL_MAIN,
+            messages=[
+                {'role': 'system', 'content': system_prompt},
+                {'role': 'user', 'content': user_prompt}
+            ],
+            options={'temperature': 0.1}
+        )
+
+        return res['message']['content'].strip()
 
 if __name__ == "__main__":
     engine = LyricalEngine(Path(__file__).parent / "vector_db")
