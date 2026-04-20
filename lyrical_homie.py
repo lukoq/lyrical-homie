@@ -1,3 +1,4 @@
+import difflib
 import re
 
 import ollama
@@ -9,11 +10,43 @@ reranker = CrossEncoder('sdadas/polish-reranker-roberta-v3')
 MODEL_MAIN = 'qwen2.5:7b-instruct'
 MODEL_HELPER = 'SpeakLeash/bielik-11b-v2.3-instruct:Q4_K_M'
 
+from config.artists import KNOWN_ARTISTS
+
 
 class LyricalEngine:
     def __init__(self, db_path):
         self.client = chromadb.PersistentClient(path=str(db_path))
         self.collection = self.client.get_collection(name="polish_rap_lyrics")
+
+    def find_artist_in_text(self, user_input):
+        clean_input = re.sub(r'[^\w\s]', '', user_input.lower())
+        words = clean_input.split()
+
+        artists_lower = [a.lower() for a in KNOWN_ARTISTS]
+
+        for artist in KNOWN_ARTISTS:
+            if artist.lower() in clean_input:
+                return artist
+
+        for word in words:
+            if len(word) > 2:
+                for artist in KNOWN_ARTISTS:
+                    if word in artist.lower().split():
+                        return artist
+
+        for word in words:
+            if len(word) < 4:
+                continue
+
+            matches = difflib.get_close_matches(word, artists_lower, n=1, cutoff=0.7)
+
+            if matches:
+                matched_lower = matches[0]
+                for original_artist in KNOWN_ARTISTS:
+                    if original_artist.lower() == matched_lower:
+                        return original_artist
+
+        return None
 
     def classify_intent(self, user_input):
         prompt = (
@@ -104,15 +137,24 @@ class LyricalEngine:
     def get_context(self, user_input, hyde_res, intention, tag):
         res_hyde, res_orig = None, None
 
-
         if intention == "SEARCH_TOPIC":
+            artist = self.find_artist_in_text(user_input)
+            artist_filter = None
+            if artist:
+                artist_filter = {"artist": artist}
+
+
             try:
                 res_orig = self.collection.query(
                     query_texts=[f"query: {tag}"],
                     n_results=15,
+                    where=artist_filter
                 )
             except Exception:
-                res_orig = self.collection.query(query_texts=[f"query: {user_input}"], n_results=15)
+                res_orig = self.collection.query(
+                    query_texts=[f"query: {user_input}"],
+                    n_results=15
+                )
         else:
             res_hyde = self.collection.query(query_texts=[f"query: {hyde_res}"], n_results=15)
             res_orig = self.collection.query(query_texts=[f"query: {user_input}"], n_results=10)
@@ -153,10 +195,11 @@ class LyricalEngine:
         if not candidates:
             return "Brak wyników."
 
+
         if hyde_res:
             query_for_reranker = f"Użytkownik pisze: '{user_input}'. Oczekiwana odpowiedź w stylu: '{hyde_res}'"
         else:
-            query_for_reranker = user_input
+            query_for_reranker = f"Użytkownik pisze: '{user_input}."
 
         pairs = [[query_for_reranker, c['tagged_parent']] for c in candidates]
 
@@ -214,9 +257,7 @@ class LyricalEngine:
                     "title": c['title']
                 })
             else:
-                # Wystarczy odjąć 3, żeby pętla wiedziała gdzie się zatrzymać
                 for i in range(len(lines) - 3):
-                    # Slicing bierze 4 linijki naraz (od i do i+4) i od razu skleja enterami!
                     verses = "\n".join(lines[i:i + 4])
                     all_pairs.append({
                         "text": verses,
@@ -275,7 +316,8 @@ class LyricalEngine:
             "ZASADY:\n"
             "1. Otrzymujesz listę TRZECH opcji.\n"
             "2. WYBIERZ TYLKO JEDNĄ najlepszą opcję, która idealnie pasuje do słów użytkownika.\n"
-            "3. Zwróć WYŁĄCZNIE DOKŁADNY TEKST wybranej opcji. Żadnych wstępów, numerów opcji, ani komentarzy."
+            "3. Wybieraj opcje, które najbardziej merytorycznie odpowiadają na zadany temat.\n"
+            "4. Zwróć WYŁĄCZNIE DOKŁADNY TEKST wybranej opcji. Żadnych wstępów, numerów opcji, ani komentarzy."
         )
 
         user_prompt = (
