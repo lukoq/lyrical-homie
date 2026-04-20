@@ -57,26 +57,35 @@ class LyricalEngine:
             return ""
 
         style_guide = {
-            "GREETING": "Powitanie jak ziomek z osiedla, zapytaj co u niego, zarzuć jakieś dobre słowo.",
-            "SITUATION": f"Mądra, życiowa porada. Tak jak staszy brat albo ojciec do syna. Temat przewodni: '{tag}'. "
-                         f"(WAŻNE: Wpleć sens tego tematu w naturalny rym, NIE wymieniaj tych słów bez sensu po przecinku).",
-            "QUESTION": f"Konkretna odpowiedź na pytanie. Użyj rapowych metafor. Temat przewodni: '{tag}'. "
-                        f"(WAŻNE: Nie wymieniaj tych słów jako listy, zrób z nich naturalny rym).",
-            "BRAGGA": "Pochwal się czymś — powiedz, jaki masz zajebisty samochód albo dziewczyne. "
-                      "Jak dużo kosztował twój outfit i ile masz pieniędzy w kieszeni."
+            "GREETING": (
+                "STYL: Luźna gadka, osiedlowa duma. "
+                "PRZYKŁAD: 'Siema mordo, dobrze cię widzieć na rewirze. Co tam u ciebie słychać, jak życie płynie?'"
+            ),
+            "SITUATION": (
+                "STYL: Surowy, życiowy autentyzm, ból i duma. Zero litości, sama prawda. "
+                f"TEMAT: {tag}. PRZYKŁAD: 'Życie to nie bajka, znowu dostajesz po plecach. Ale stój kurwa twardo, ziomek, bo szacunek to forteca.'"
+            ),
+            "QUESTION": (
+                "STYL: Konkret, rapowa metafora, bez owijania w bawełnę. "
+                f"TEMAT: {tag}. PRZYKŁAD: 'Pytasz o drogę? Tu mapą jest serce i lojalność. Reszta to tylko tło, tania teatralność.'"
+            ),
+            "BRAGGA": (
+                "STYL: Pewność siebie, luksus, agresywny sukces. "
+                "PRZYKŁAD: 'Wjeżdżam w to miasto, złoto na szyi się świeci. Mam drogie buty, czas na Rolex szybko leci.'"
+            )
         }
 
         chosen_style = style_guide.get(intention, "Napisz luźny, rapowy komentarz do tej sytuacji.")
 
         prompt = (
-            "Jesteś polskim raperem. Twoim zadaniem jest napisanie krótkiego tekstu, który posłuży jako wektor wyszukiwania.\n\n"
+            "Jesteś polskim raperem. Twoim zadaniem jest napisanie dwóch  zdań, które posłużą jako odpowiedż na tekst.\n\n"
+            f"INPUT UŻYTKOWNIKA na który odpowiadasz: {user_input}\n"
+            f"{chosen_style} \n"
             "ZASADY:\n"
-            "1. Napisz DOKŁADNIE DWA krótkie mocne i dosadne zdania.\n"
+            "1. Napisz DOKŁADNIE 2 (DWA) mocne, KRÓTKIE i dosadne zdania.\n"
             "2. Używaj ulicznego slangu, polskiego rapowego słownictwa.\n"
             "3. Nie bój się być wulgarny, jeśli sprawa tego wymaga.\n"
-            f"3. STYL: {chosen_style}\n"
-            "4. Zwróć TYLKO sam tekst rymu. Absolutnie żadnych powitań, komentarzy ani słów typu 'Oto mój rym'.\n\n"
-            f"Wypowiedź użytkownika: {user_input}"
+            "RAP:"
         )
 
         try:
@@ -141,7 +150,10 @@ class LyricalEngine:
                         "tags": tags_display
                     })
 
-        if not candidates: return "Brak wyników."
+        print(candidates)
+
+        if not candidates:
+            return "Brak wyników."
 
         if hyde_res:
             query_for_reranker = f"Użytkownik pisze: '{user_input}'. Oczekiwana odpowiedź w stylu: '{hyde_res}'"
