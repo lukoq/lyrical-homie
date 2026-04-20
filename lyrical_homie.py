@@ -1,3 +1,5 @@
+import re
+
 import ollama
 from pathlib import Path
 import chromadb
@@ -108,7 +110,6 @@ class LyricalEngine:
                 res_orig = self.collection.query(
                     query_texts=[f"query: {tag}"],
                     n_results=15,
-                    where={"tags": {"$contains": tag}}
                 )
             except Exception:
                 res_orig = self.collection.query(query_texts=[f"query: {user_input}"], n_results=15)
@@ -149,9 +150,6 @@ class LyricalEngine:
                         "title": meta['title'],
                         "tags": tags_display
                     })
-
-        print(candidates)
-
         if not candidates:
             return "Brak wyników."
 
@@ -203,23 +201,25 @@ class LyricalEngine:
         )
         return res['message']['content']
 
-    def final_response_post_retrieval(self, user_input, candidates):
+    def final_response_parent_retrieval(self, user_input, candidates):
         all_pairs = []
 
         for c in candidates:
             lines = [line.strip() for line in c['parent'].split('\n') if line.strip()]
 
-            if len(lines) <= 2:
+            if len(lines) <= 4:
                 all_pairs.append({
                     "text": "\n".join(lines),
                     "artist": c['artist'],
                     "title": c['title']
                 })
             else:
-                for i in range(len(lines) - 1):
-                    pair = f"{lines[i]}\n{lines[i + 1]}"
+                # Wystarczy odjąć 3, żeby pętla wiedziała gdzie się zatrzymać
+                for i in range(len(lines) - 3):
+                    # Slicing bierze 4 linijki naraz (od i do i+4) i od razu skleja enterami!
+                    verses = "\n".join(lines[i:i + 4])
                     all_pairs.append({
-                        "text": pair,
+                        "text": verses,
                         "artist": c['artist'],
                         "title": c['title']
                     })
@@ -235,9 +235,10 @@ class LyricalEngine:
         system_prompt = (
             "Jesteś 'Lyrical Homie'. Udzielasz rapowych ripost.\n"
             "ZASADY:\n"
-            "1. Otrzymujesz listę kilkunastu 2-wersowych opcji.\n"
+            "1. Otrzymujesz listę kilkunastu 4-wersowych opcji.\n"
             "2. WYBIERZ TYLKO JEDNĄ najlepszą opcję, która idealnie pasuje do słów użytkownika.\n"
-            "3. Zwróć WYŁĄCZNIE DOKŁADNY TEKST wybranej opcji. Żadnych wstępów, numerów opcji, ani komentarzy."
+            "3. Wybieraj opcje, które najbardziej merytorycznie odpowiadają na zadany temat.\n"
+            "4. Zwróć WYŁĄCZNIE DOKŁADNY TEKST wybranej opcji. Żadnych wstępów, numerów opcji, ani komentarzy."
         )
 
         user_prompt = (
@@ -256,6 +257,43 @@ class LyricalEngine:
 
         return res['message']['content'].strip()
 
+    def final_response_child_retrieval(self, user_input, candidates):
+        clean_options = []
+
+        for c in candidates:
+            raw_child = c['child']
+
+            raw_child = raw_child.replace("passage:", "")
+            clean_text = re.sub(r'\[Tagi:.*?\]\s*', '', raw_child).strip()
+
+            clean_options.append(clean_text)
+
+        context_str = "\n\n".join([f"OPCJA {i + 1}:\n{text}" for i, text in enumerate(clean_options)])
+
+        system_prompt = (
+            "Jesteś 'Lyrical Homie'. Udzielasz rapowych ripost.\n"
+            "ZASADY:\n"
+            "1. Otrzymujesz listę TRZECH opcji.\n"
+            "2. WYBIERZ TYLKO JEDNĄ najlepszą opcję, która idealnie pasuje do słów użytkownika.\n"
+            "3. Zwróć WYŁĄCZNIE DOKŁADNY TEKST wybranej opcji. Żadnych wstępów, numerów opcji, ani komentarzy."
+        )
+
+        user_prompt = (
+            f"Użytkownik mówi: {user_input}\n\n"
+            f"DOSTĘPNE OPCJE DO WYBORU:\n{context_str}"
+        )
+
+        res = ollama.chat(
+            model=MODEL_MAIN,
+            messages=[
+                {'role': 'system', 'content': system_prompt},
+                {'role': 'user', 'content': user_prompt}
+            ],
+            options={'temperature': 0.1}
+        )
+        x = res['message']['content'].strip()
+        print(x)
+        return x
 if __name__ == "__main__":
     engine = LyricalEngine(Path(__file__).parent / "vector_db")
 
