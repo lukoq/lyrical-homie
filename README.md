@@ -16,6 +16,7 @@ Instead of generating generic responses, the system:
       <img width="200" height="300" alt="Untitled-1" src="https://github.com/user-attachments/assets/ca92e19a-deea-4d4a-bf2d-0b13a948e36e" />
       <img width="200" height="300" alt="Untitled-2" src="https://github.com/user-attachments/assets/84e19bb1-0939-4aad-91d9-1049330af3e6" />
       <img width="200" height="300" alt="Untitled-3" src="https://github.com/user-attachments/assets/14b52572-2977-4fb7-bab9-8a7f91aaf9c8" />
+      <img width="200" height="300" alt="Untitled-4" src="https://github.com/user-attachments/assets/0c3c2401-72bb-42f5-a86e-cf569679895a" />
 </p>
 
 ## The approach taken
@@ -75,7 +76,7 @@ Classes:
 * `GREETING`
 * `SITUATION`
 * `QUESTION`
-* `SMALL_TALK`
+* `BRAGGA`
 * `SEARCH_TOPIC`
 
 The selected intent affects the final appearance of the HYDE prompt 
@@ -105,7 +106,7 @@ prompt = (
 #### Step 3: Retrieval Strategy
 
 * Standard semantic search
-* Metadata tag search (For `SEARCH_TOPIC`)
+* Search by metadata tags and artist nicknames, if that is the user's intention (`SEARCH_TOPIC` intention).
 
 ---
 
@@ -120,7 +121,7 @@ The system uses a dual-query strategy that combines the HYDE query with the user
 #### Step 5: Final Selection
 
 * Decison maker (qwen2.5:7b-instruct) selects best match
-* Extracts **top 2 most relevant lines**
+* Extracts **top 2 most relevant lines** (*depending on the method used, there are also others possibilities)
 
 ---
 
