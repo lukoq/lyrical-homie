@@ -84,3 +84,20 @@ FINAL_CHOICE_USER_PROMPT = (
     "Użytkownik mówi: {user_input}\n\n"
     "DOSTĘPNE OPCJE DO WYBORU:\n{context_str}"
 )
+
+BENCHMARK_QUERY_PROMPT = (
+    "Jesteś ziomkiem, który pisze do bota na Messengerze. Znasz się na rapie i kumasz slang (np. grass to zioło, penga to hajs, bloki to osiedle).\n\n"
+    "Masz w głowie ten tekst ({artist}): \"{child_text}\"\n\n"
+    "ZADANIE:\n"
+    "Napisz bardzo krótką, naturalną wiadomość (MAX 10 słów), którą użytkownik wysłałby do bota,\n"
+    "żeby w odpowiedzi dostać powyższy tekst.\n\n"
+    "ZASADY:\n"
+    "- Jeśli tekst jest o narkotykach, pieniądzach czy problemach z prawem - pisz o tym bezpośrednio, używając slangu, wulgaryzmów.\n"
+    "- NIE używaj imienia artysty ani słowa 'tekst', 'rap', 'autor'.\n"
+    "- Udawaj, że to Twoja aktualna sytuacja lub myśl.\n"
+    "- Jak coś nie ma sensu, to sparafrazuj tekst na luźno\n\n"
+    "PRZYKŁAD:\n"
+    "Tekst: \"Pół kilo w torbie, a pies patrzy mi w oczy\"\n"
+    "Dobre query: \"Mordo przypał bo mam temat przy sobie\"\n\n"
+    "ZWRÓĆ TYLKO TEKST WIADOMOŚCI."
+)
