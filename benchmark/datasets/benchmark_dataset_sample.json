@@ -1,0 +1,7 @@
+{
+  "test_id": "artist_title_1",
+  "query": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+  "expected_intent": "QUESTION",
+  "expected_child": "Excepteur sint occaecat cupidatat non proident\nsunt in culpa qui officia deserunt mollit",
+  "expected_artist": "artist"
+}
