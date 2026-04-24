@@ -1,0 +1,2278 @@
+{
+  "metrics": {
+    "intent_correct": 66,
+    "retrieval_strict_hit": 20,
+    "retrieval_soft_hit": 27,
+    "total": 108
+  },
+  "details": [
+    {
+      "query": "Wjeżdżam do klubu jakbym był tu szefem.",
+      "expected_id": "pokahontaz_średniowiecze_20",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "filipek_klub_22_30",
+          "chada_żyć_aż_do_bólu_8",
+          "wdowa_iiiii_0",
+          "young_multi_trap_ii_8",
+          "peja_ludzie_z_mej_rzeczywistości_2"
+        ],
+        "top_1_found": "filipek_klub_22_30"
+      }
+    },
+    {
+      "query": "Marzę o G-Wagon, mordo, ale nie mogę kupić miłości.",
+      "expected_id": "bedoes_2115_michelangelo_19",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SEARCH_TOPIC",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": true,
+        "found_ids": [
+          "bedoes_2115_michelangelo_0",
+          "bedoes_2115_michelangelo_31",
+          "dudek_p56_marihuana_0",
+          "beteo_benzo_20",
+          "bober_poradnik_sukcesu_1"
+        ],
+        "top_1_found": "bedoes_2115_michelangelo_0"
+      }
+    },
+    {
+      "query": "Mordo, nie znam tego, czemu mam się kłaniać przed tym rapem?",
+      "expected_id": "otsochodzi_janka_rap_22",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "filipek_filipek_vs._koro___bitwa_o_kostrzyn_2019_(finał)_freestyle_battle_0",
+          "sentino_algeciras_2",
+          "białas_jak_skepta_11",
+          "wdowa_#hot16challenge_12",
+          "rogal_ddl_156_21"
+        ],
+        "top_1_found": "filipek_filipek_vs._koro___bitwa_o_kostrzyn_2019_(finał)_freestyle_battle_0"
+      }
+    },
+    {
+      "query": "Co tam u Ciebie ziomek, dawno się nie odzywałeś?",
+      "expected_id": "yung_adisz_dno_6",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "GREETING",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "pelson_list_0",
+          "quebonafide_żadnych_zmartwień_0",
+          "bonus_rpk_kot_32",
+          "filipek_list_pożegnalny_1",
+          "firma_po_tej_samej_stronie_1"
+        ],
+        "top_1_found": "pelson_list_0"
+      }
+    },
+    {
+      "query": "Szukam sposobu, żeby wreszcie pokochać sam siebie.",
+      "expected_id": "jędker_hejter_11",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SEARCH_TOPIC",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "grammatik_puste_pokoje_(bębny_grają_miks)_30",
+          "jan-rapowanie_wszystko_ok_6",
+          "jan-rapowanie_wszystko_ok_19",
+          "grammatik_czasem_35",
+          "jan-rapowanie_ławka_z_chłopakami_18"
+        ],
+        "top_1_found": "grammatik_puste_pokoje_(bębny_grają_miks)_30"
+      }
+    },
+    {
+      "query": "Mordo, znowu tego nie widze.",
+      "expected_id": "łona_i_webber_woodstock_’89_18",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bonus_rpk_zdziwiłbyś_się_5",
+          "dudek_p56_co_nadejdzie_17",
+          "firma_brat_42",
+          "grubson_przestań_się_bać_18",
+          "grammatik_nie_ma_skróconych_dróg_29"
+        ],
+        "top_1_found": "bonus_rpk_zdziwiłbyś_się_5"
+      }
+    },
+    {
+      "query": "Wjeżdżam w to towarzystwo jak szef, nie potrzebuję sceny by błyszczeć. Ona chce tego sama, co ja.",
+      "expected_id": "taconafide_leonardo_16",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "firma_kropka_nad_i_86",
+          "beteo_przejazd_16",
+          "fagata_diss_na_różową_9",
+          "adma_#hot16challenge_4",
+          "chada_innego_życia_nie_znam_18"
+        ],
+        "top_1_found": "firma_kropka_nad_i_86"
+      }
+    },
+    {
+      "query": "Mordo, znowu mam dziwne sny od ktrych płacze.",
+      "expected_id": "pro8l3m_rotterdam_2",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "beteo_sny_z_ulicy_23",
+          "filipek_słodko-gorzkie_łzy_21",
+          "beteo_sny_z_ulicy_8",
+          "borixon_złe_sny_5",
+          "borixon_złe_sny_12"
+        ],
+        "top_1_found": "beteo_sny_z_ulicy_23"
+      }
+    },
+    {
+      "query": "Zbudowałem cały skład, czas na nowe brzmienie.",
+      "expected_id": "peja_czas_hardcoru_16",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bonson_martwy_król_3",
+          "eis_czasem_31",
+          "bezczel_idą_asy_w_klub_2",
+          "guzior_ninja_5",
+          "białas_street_credit_freestyle_9"
+        ],
+        "top_1_found": "bonson_martwy_król_3"
+      }
+    },
+    {
+      "query": "Mordo, powiesz coś wiecej?",
+      "expected_id": "bonson_martwy_król_29",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "pro8l3m_nicea_0",
+          "małolat_w_tej_grze_21",
+          "deys_easy_10",
+          "białas_prawdziwy_trap_9",
+          "bonus_rpk_liga_mistrzów_8"
+        ],
+        "top_1_found": "pro8l3m_nicea_0"
+      }
+    },
+    {
+      "query": "Iluminati? Chyba nie wiecie o czym mówicie. Monumenty są wszędzie, ale wy niczego nie dostrzegacie.",
+      "expected_id": "asster_pretensje_(bonus_track)_2",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "QUESTION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "asster_pretensje_(bonus_track)_2",
+          "dudek_p56_polski_rap_4",
+          "dixon37_nokaut_41",
+          "dudek_p56_polski_rap_51",
+          "firma_reprezentuję_jp_3"
+        ],
+        "top_1_found": "asster_pretensje_(bonus_track)_2"
+      }
+    },
+    {
+      "query": "Ej, ziomuś, pływam po mieście i nie gram w Opolu",
+      "expected_id": "filipek_klub_22_39",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "białas_red_bull_64_bars_7",
+          "diho_no_to_cyk_10",
+          "asster_aqua_16",
+          "fagata_bulletproof_2",
+          "gruby_mielzky_do_wesela_się_zagoi_15"
+        ],
+        "top_1_found": "białas_red_bull_64_bars_7"
+      }
+    },
+    {
+      "query": "Czy widze duchy czy nie?",
+      "expected_id": "dwa_sławy_mogłoby_się_wydawać_23",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": true,
+        "found_ids": [
+          "szpaku_cyklofrenia_7",
+          "dwa_sławy_mogłoby_się_wydawać_14",
+          "gedz_fatamorgana_2",
+          "grammatik_ostatnie_słowa_0",
+          "szpaku_dzieci_duchy_1"
+        ],
+        "top_1_found": "szpaku_cyklofrenia_7"
+      }
+    },
+    {
+      "query": "Myślę o nowym dresie, co ty ziomuś na to?",
+      "expected_id": "borixon_co_ty_kurwa_chcesz_od_ziomka_2",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "popek_moje_życie_jest_jak_sen_7",
+          "białas_jak_skepta_3",
+          "vkie_2025_freestyle_26",
+          "fagata_5_zegarków_11",
+          "białas_#freebialas_4"
+        ],
+        "top_1_found": "popek_moje_życie_jest_jak_sen_7"
+      }
+    },
+    {
+      "query": "Co mam zrobić z tym leszczem?",
+      "expected_id": "peja_wszystko_na_mój_koszt_44",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "białas_sępy_6",
+          "gedz_niebo_nie_jest_limitem_4",
+          "young_multi_list_otwarty_30",
+          "zeamsone_high_life_2_20",
+          "3y_gun_kara_etap_9"
+        ],
+        "top_1_found": "białas_sępy_6"
+      }
+    },
+    {
+      "query": "Mordo, ciągle gapię się w telefon zamiast cieszyć się życiem.",
+      "expected_id": "żabson_do_ziomów_22",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "dudek_p56_jak_pragnę_33",
+          "mata_jestem_poj384ny_5",
+          "frosti_puzzle_5",
+          "dwa_sławy_no_cześć_0",
+          "bonus_rpk_przekręt_12"
+        ],
+        "top_1_found": "dudek_p56_jak_pragnę_33"
+      }
+    },
+    {
+      "query": "Wjeżdżam w to towarzystwo jak boss z tymi cyferkami na koncie! Daj mi tę datę i dzień, mordo.",
+      "expected_id": "sentino_rémy_martin_15",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bedoes_2115_napad_24",
+          "filipek_filipek_vs._koro___bitwa_o_kostrzyn_2019_(finał)_freestyle_battle_64",
+          "asster_gwiazda_12",
+          "białas_drift_21",
+          "białas_na_serio_12"
+        ],
+        "top_1_found": "bedoes_2115_napad_24"
+      }
+    },
+    {
+      "query": "Dla kogo mam to robić?",
+      "expected_id": "firma_chorągiewy_19",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "kękę_na_drodze_17",
+          "wini_nienawidzę_raperów_60",
+          "ero_jwp_sens_jest_prosty_8",
+          "fagata_wszystkie_fajne_9",
+          "fagata_wszystkie_fajne_19"
+        ],
+        "top_1_found": "kękę_na_drodze_17"
+      }
+    },
+    {
+      "query": "Mordo, znowu chcą moje rzeczy i pytają o squad.",
+      "expected_id": "bedoes_2115_biały_i_młody_11",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "tede_69_ziomeczków_11",
+          "otsochodzi_kfc_18",
+          "belmondo_pappardelle_all’arrabbiata_10",
+          "kizo_cichociemni_20",
+          "deys_coming_out_dawida_czerwiaka_69"
+        ],
+        "top_1_found": "tede_69_ziomeczków_11"
+      }
+    },
+    {
+      "query": "Ziomuś, czuję się jakbym był bardzo zmęczony",
+      "expected_id": "pono_oddech_0",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "firma_do_przodu_56",
+          "bonus_rpk_sportowa_warszawa_81",
+          "firma_do_przodu_57",
+          "bezczel_bene_nati_37",
+          "chada_to_nie_nasz_klimat_5"
+        ],
+        "top_1_found": "firma_do_przodu_56"
+      }
+    },
+    {
+      "query": "Nie mam wyboru, muszę to ciągnąć jak robot do wakacji.",
+      "expected_id": "bonus_rpk_anty_fałsz_16",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "firma_do_przodu_56",
+          "jetlagz_roppongi_boys_19",
+          "dudek_p56_bym_zajechał_do_nieba_23",
+          "gedz_247365_39",
+          "małolat_w_tej_grze_21"
+        ],
+        "top_1_found": "firma_do_przodu_56"
+      }
+    },
+    {
+      "query": "Mordo, dzwonią mi na mój stary telefon",
+      "expected_id": "3y_gun_kara_stare_relacje_24",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "mata_jestem_poj384ny_5",
+          "bonus_rpk_przekręt_12",
+          "3y_gun_kara_stare_relacje_10",
+          "quebonafide_pablo_5",
+          "malik_montana_rose_moët_1"
+        ],
+        "top_1_found": "mata_jestem_poj384ny_5"
+      }
+    },
+    {
+      "query": "Mordo, czuję się jak skała wśród fal, ale nie wiem co z tym zrobić.",
+      "expected_id": "pih_zawsze_muszę_coś_spierdolić_1",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "pih_zawsze_muszę_coś_spierdolić_1",
+          "dudek_p56_bóg_jest_tu_ze_mną_9",
+          "pro8l3m_interpol_6",
+          "chada_to_nie_nasz_klimat_5",
+          "kuban_jak_gdyby_nic_21"
+        ],
+        "top_1_found": "pih_zawsze_muszę_coś_spierdolić_1"
+      }
+    },
+    {
+      "query": "Kto idzie i ma takie oczy?",
+      "expected_id": "undadasea_oczy_kobry_25",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "undadasea_oczy_kobry_24",
+          "filipek_atramentowe_noce_23",
+          "undadasea_oczy_kobry_25",
+          "eldo_pan_nikt_12",
+          "filipek_atramentowe_noce_11"
+        ],
+        "top_1_found": "undadasea_oczy_kobry_24"
+      }
+    },
+    {
+      "query": "Jestem z nią jak Modigliani",
+      "expected_id": "taco_hemingway_modigliani_20",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "taco_hemingway_modigliani_18",
+          "taco_hemingway_modigliani_6",
+          "taco_hemingway_modigliani_19",
+          "taco_hemingway_modigliani_8",
+          "taco_hemingway_modigliani_20"
+        ],
+        "top_1_found": "taco_hemingway_modigliani_18"
+      }
+    },
+    {
+      "query": "Hej ziomuś, wjeżdżam tu, ale co to za impreza bez gelato? Mordo, gdzie są te lody?",
+      "expected_id": "taco_hemingway_gelato_17",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "GREETING",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "diho_pirat_9",
+          "gang_albanii_prawdziwe_damy__blachary_-_wersja_borixon_reggae_mix_9",
+          "chada_sześciogwiazdkowy_skurwiel_5",
+          "gang_albanii_dupy_wino_kokolino_18",
+          "eis_w_szponach_melanżu_18"
+        ],
+        "top_1_found": "diho_pirat_9"
+      }
+    },
+    {
+      "query": "Ten bit jest świetny jak Galapagos i Laos",
+      "expected_id": "miły_atz_rytm_10",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "adma_tak_to_wygląda_37",
+          "grubson_jamajkamam2_18",
+          "adma_tak_to_wygląda_24",
+          "deys_tour_of_the_year_2_38",
+          "borixon_alibaba_4"
+        ],
+        "top_1_found": "adma_tak_to_wygląda_37"
+      }
+    },
+    {
+      "query": "Mordo, nie wiem co robić?",
+      "expected_id": "young_multi_nie_wiem_41",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_8",
+          "pro8l3m_nicea_0",
+          "pro8l3m_interpol_6",
+          "bonus_rpk_rodeo_34",
+          "chada_to_nie_nasz_klimat_5"
+        ],
+        "top_1_found": "bonus_rpk_nie_ma_dróg_bez_wyjścia_8"
+      }
+    },
+    {
+      "query": "Czy mogę go obrazić i powiedzieć coś niemiłego?",
+      "expected_id": "eldo_granice_10",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "słoń_(pol)_złoń_4",
+          "frosti_x_bars_8",
+          "pih_2003_25",
+          "bezczel_cisza_przed_burzą_31",
+          "gruby_mielzky_silny_jak_nigdy,_wkurwiony_jak_zwykle_25"
+        ],
+        "top_1_found": "słoń_(pol)_złoń_4"
+      }
+    },
+    {
+      "query": "Ej ziom, hajs się mnie trzyma ostatnio.",
+      "expected_id": "gedz_247365_38",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "białas_street_credit_freestyle_9",
+          "bezczel_adhd_22",
+          "borixon_alibaba_3",
+          "białas_blakablakablaka_27",
+          "dixon37_bliżej_niż_myślisz_29"
+        ],
+        "top_1_found": "białas_street_credit_freestyle_9"
+      }
+    },
+    {
+      "query": "Siema, wbijam w pogo z diamentowym chainem.",
+      "expected_id": "young_multi_młody_manson_14",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "young_multi_młody_manson_16",
+          "young_multi_młody_manson_7",
+          "young_multi_młody_manson_14",
+          "diho_krąg_12",
+          "asster_karaty_21"
+        ],
+        "top_1_found": "young_multi_młody_manson_16"
+      }
+    },
+    {
+      "query": "Mordo, mam trudny charakter i chciałbym zarobić.",
+      "expected_id": "bezczel_nie_umiemy_żyć_ze_sobą,_nie_możemy_żyć_bez_siebie_19",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "bezczel_nie_umiemy_żyć_ze_sobą,_nie_możemy_żyć_bez_siebie_19",
+          "asster_rondo_1",
+          "firma_przeciwko_kurestwu_i_upadkowi_zasad_11",
+          "bezczel_nie_chcę_tego_czego_ty_17",
+          "bezczel_bene_nati_37"
+        ],
+        "top_1_found": "bezczel_nie_umiemy_żyć_ze_sobą,_nie_możemy_żyć_bez_siebie_19"
+      }
+    },
+    {
+      "query": "Jestem stąd, a Poznań moim miastem, Jeżyce to mój dom",
+      "expected_id": "peja_richtown_(extended_version)_70",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "peja_richtown_(extended_version)_70",
+          "dudek_p56_polski_rap_4",
+          "dudek_p56_polski_rap_19",
+          "ero_jwp_nie_mogę_przestać_12",
+          "peja_richtown_(extended_version)_64"
+        ],
+        "top_1_found": "peja_richtown_(extended_version)_70"
+      }
+    },
+    {
+      "query": "To są te kluby, gdzie urywa się film, mordo",
+      "expected_id": "małolat_w_weekendy_żyjąc_2",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "filipek_klub_22_30",
+          "bambi_to_nie_ma_znaczenia_11",
+          "bedoes_2115_fps_(bonus_track)_5",
+          "eis_nie_dzwoń_do_mnie_10",
+          "blacha_2115_freezer_12"
+        ],
+        "top_1_found": "filipek_klub_22_30"
+      }
+    },
+    {
+      "query": "Zakochałem się w lasce pijąc kawe",
+      "expected_id": "te-tris_kopi_luwak_4",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "eis_rap_-_sukinsyn_12",
+          "dudek_p56_lek_na_całe_zło_17",
+          "chada_dranie_tak_mają_11",
+          "zbuku_la_vida_loca_20",
+          "peja_smak_życia_18"
+        ],
+        "top_1_found": "eis_rap_-_sukinsyn_12"
+      }
+    },
+    {
+      "query": "Co sądzisz o tej nowej apce, którą ściągnąłem? Będę miał jutro problem?",
+      "expected_id": "dwa_sławy_halo?_26",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "dwa_sławy_halo?_27",
+          "dwa_sławy_halo?_26",
+          "ero_jwp_ty_znasz?_5",
+          "dwa_sławy_halo?_9",
+          "jan-rapowanie_pożyjemy_zobaczymy_19"
+        ],
+        "top_1_found": "dwa_sławy_halo?_27"
+      }
+    },
+    {
+      "query": "Mam już dość tych ciągłych hałasów, stary.",
+      "expected_id": "kaen_historia_pewnej_miłości_23",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_8",
+          "frosti_zeszyt_16",
+          "chada_to_nie_nasz_klimat_5",
+          "żabson_skunax_8",
+          "wwo_podróby_31"
+        ],
+        "top_1_found": "bonus_rpk_nie_ma_dróg_bez_wyjścia_8"
+      }
+    },
+    {
+      "query": "Mam dość tego syfu, wychodzę z gry.",
+      "expected_id": "donguralesko_bangladesz_21",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "dixon37_nie_zwariować_7",
+          "dudek_p56_jak_pragnę_22",
+          "peja_k.o.___czysty_nokaut_19",
+          "eldo_sparta_1",
+          "dudek_p56_d12_45"
+        ],
+        "top_1_found": "dixon37_nie_zwariować_7"
+      }
+    },
+    {
+      "query": "jadę na koncert, coś mi powiedz o trasie",
+      "expected_id": "szymi_szyms_salam_alaykum_4",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "dwa_sławy_zamknij_mordę_tour_14",
+          "deys_tour_of_the_year_2_67",
+          "dwa_sławy_zamknij_mordę_tour_3",
+          "deys_tour_of_the_year_2_21",
+          "undadasea_pawulon_12"
+        ],
+        "top_1_found": "dwa_sławy_zamknij_mordę_tour_14"
+      }
+    },
+    {
+      "query": "wciąż reprezentuję swoje bloki, nie zapomniałem skąd jestem",
+      "expected_id": "zbuku_mvp_22",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "dixon37_masz_to_we_krwi_29",
+          "dixon37_od_zawsze_na_zawsze_(oznz)_15",
+          "dixon37_masz_to_we_krwi_21",
+          "firma_akcje_fachowe_7",
+          "dixon37_masz_to_we_krwi_19"
+        ],
+        "top_1_found": "dixon37_masz_to_we_krwi_29"
+      }
+    },
+    {
+      "query": "psy przyszły po mnie, co teraz?",
+      "expected_id": "małolat_sąsiedzi_35",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "firma_brat_ii_48",
+          "małolat_sąsiedzi_35",
+          "bezczel_bene_nati_37",
+          "jongmen_la_vida_loca_6",
+          "chada_obrachunek_moralny_7"
+        ],
+        "top_1_found": "firma_brat_ii_48"
+      }
+    },
+    {
+      "query": "mam siłę, ale już nie wiem jak dalej",
+      "expected_id": "o.s.t.r._o_robieniu_bitów_11",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "dixon37_niektórych_rzeczy_nie_da_się_zapomnieć_11",
+          "frosti_x_bars_1",
+          "bonus_rpk_sportowa_warszawa_9",
+          "kękę_nic_już_nie_muszę_6",
+          "małolat_12_lat_22"
+        ],
+        "top_1_found": "dixon37_niektórych_rzeczy_nie_da_się_zapomnieć_11"
+      }
+    },
+    {
+      "query": "co powiedzą, jak zmienię swój los?",
+      "expected_id": "jwp_jebać_25",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bezczel_czarne_róże_2",
+          "bezczel_teraz_albo_nigdy_6",
+          "bonus_rpk_śmiechy_śmiechami_31",
+          "bezczel_bene_nati_35",
+          "bezczel_teraz_albo_nigdy_5"
+        ],
+        "top_1_found": "bezczel_czarne_róże_2"
+      }
+    },
+    {
+      "query": "czekam na kogoś na dworcu, co jest grane?",
+      "expected_id": "małpa_wyjeżdżam_by_wrócić_21",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "fisz_dworzec_14",
+          "fisz_dworzec_13",
+          "chada_twoje_decyzje,_twoje_wybory_13",
+          "taco_hemingway_deszcz_na_betonie_32",
+          "liroy_hello_(czy_ty_czujesz_to?)_7"
+        ],
+        "top_1_found": "fisz_dworzec_14"
+      }
+    },
+    {
+      "query": "czuję się jakbym miał anioła stróża",
+      "expected_id": "pih_biegnij,_nie_oglądaj_się_0",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "chada_zwykły_facet_37",
+          "popek_nigdy_nie_mów_nigdy_12",
+          "małpa_lego_18",
+          "dudek_p56_bóg_jest_tu_ze_mną_46",
+          "dixon37_bliżej_niż_myślisz_25"
+        ],
+        "top_1_found": "chada_zwykły_facet_37"
+      }
+    },
+    {
+      "query": "nie śpię bez benzo, pomóż",
+      "expected_id": "kaz_bałagane_mikołaj_koper_9",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": true,
+        "found_ids": [
+          "kaz_bałagane_mikołaj_koper_1",
+          "białas_pdw_17",
+          "vkie_truskulowy__2_1",
+          "bonus_rpk_niebezpieczna_jazda_33",
+          "kaz_bałagane_mikołaj_koper_19"
+        ],
+        "top_1_found": "kaz_bałagane_mikołaj_koper_1"
+      }
+    },
+    {
+      "query": "sprzedam duszę za penge",
+      "expected_id": "pezet_droga_10",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "białas_cyka_blyat_20",
+          "białas_cyka_blyat_21",
+          "sobota_przepraszam_1",
+          "pih_szatańskie_wersety_28",
+          "białas_uzi_11"
+        ],
+        "top_1_found": "białas_cyka_blyat_20"
+      }
+    },
+    {
+      "query": "robię błędy, szukam siły",
+      "expected_id": "eldo_połamany_ludzik_7",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "gruby_mielzky_silny_jak_nigdy,_wkurwiony_jak_zwykle_7",
+          "3y_gun_kara_miej_uważny_wzrok_17",
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_8",
+          "bober_wiesz_jak_jest_2",
+          "bonson_razy_12"
+        ],
+        "top_1_found": "gruby_mielzky_silny_jak_nigdy,_wkurwiony_jak_zwykle_7"
+      }
+    },
+    {
+      "query": "chce być rekin w branży, coś mnie pcha do przodu",
+      "expected_id": "aleshen_rekin_21",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": true,
+        "found_ids": [
+          "aleshen_rekin_2",
+          "aleshen_rekin_3",
+          "aleshen_rekin_20",
+          "firma_do_przodu_44",
+          "bezczel_forrest_gump_1"
+        ],
+        "top_1_found": "aleshen_rekin_2"
+      }
+    },
+    {
+      "query": "gdzie jest moje zioło?",
+      "expected_id": "undadasea_nie_ma_nas_22",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "SEARCH_TOPIC",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "undadasea_melex_20",
+          "undadasea_o.i.p._mafia_35",
+          "undadasea_timeout_4",
+          "żabson_puerto_bounce_17",
+          "firma_akcje_fachowe_2"
+        ],
+        "top_1_found": "undadasea_melex_20"
+      }
+    },
+    {
+      "query": "chce napaść na bank, mam pengi na designerskie ciuchy",
+      "expected_id": "bedoes_2115_napad_28",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": true,
+        "found_ids": [
+          "bedoes_2115_napad_27",
+          "bedoes_2115_napad_9",
+          "bedoes_2115_napad_22",
+          "bedoes_2115_napad_29",
+          "bedoes_2115_napad_31"
+        ],
+        "top_1_found": "bedoes_2115_napad_27"
+      }
+    },
+    {
+      "query": "co z modą, każdy chce wyglądać dobrze",
+      "expected_id": "tede_streetwear_14",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SEARCH_TOPIC",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "donguralesko_yabadabadoo_6",
+          "wwo_jestem_normalny_3",
+          "fagata_wow_7",
+          "fagata_wow_21",
+          "o.s.t.r._e.k.o._9"
+        ],
+        "top_1_found": "donguralesko_yabadabadoo_6"
+      }
+    },
+    {
+      "query": "czekają na mnie z wymianą, co robic?",
+      "expected_id": "bober_płyta_dekady_2_6",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bonus_rpk_przekręt_11",
+          "firma_brat_ii_9",
+          "chada_już_po_tobie_5",
+          "gruby_mielzky_silny_jak_nigdy,_wkurwiony_jak_zwykle_19",
+          "chada_to_nie_nasz_klimat_5"
+        ],
+        "top_1_found": "bonus_rpk_przekręt_11"
+      }
+    },
+    {
+      "query": "chcę mieć po sobie ślad, nie tylko ząb ze złota.",
+      "expected_id": "paluch_amalgamat_21",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SEARCH_TOPIC",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "guzior_tatuaże_z_henny_13",
+          "gedz_chaos_22",
+          "gedz_otchłań_13",
+          "rogal_ddl_miszyn___reddot___lahandra_46",
+          "gedz_chaos_14"
+        ],
+        "top_1_found": "guzior_tatuaże_z_henny_13"
+      }
+    },
+    {
+      "query": "miała mnie gdzieś, a ja myślałem, że to coś więcej",
+      "expected_id": "schafter_blur_9",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bober_gdzie_ona_jest_35",
+          "blacha_2115_trap_sims_12",
+          "kaen_dziwka_5",
+          "white_2115_najmłodszy_książę_9",
+          "kaz_bałagane_penthaus_1"
+        ],
+        "top_1_found": "bober_gdzie_ona_jest_35"
+      }
+    },
+    {
+      "query": "mam wypite i szukam kolejnego pomysłu",
+      "expected_id": "donguralesko_co_17",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SEARCH_TOPIC",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "filipek_klub_22_25",
+          "bober_na_pewno_nie_outro_14",
+          "diho_polak_17",
+          "diho_polak_1",
+          "ero_jwp_piątek_trzynastego_20"
+        ],
+        "top_1_found": "filipek_klub_22_25"
+      }
+    },
+    {
+      "query": "czy mógłbyś mi podać słowa o wujku?",
+      "expected_id": "peja_czas_hardcoru_54",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "SEARCH_TOPIC",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "kaen_władca_liter_4",
+          "bober_jak_ty_6",
+          "frosti_cinkciarz_15",
+          "dixon37_bez_zbędnego_pierdolenia_5",
+          "białas_święto_ogródka_11"
+        ],
+        "top_1_found": "kaen_władca_liter_4"
+      }
+    },
+    {
+      "query": "ludzie mnie męczą i pytają co u mnie słychać",
+      "expected_id": "kaz_bałagane_co_tam_9",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "GREETING",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "guzior_wifi_18",
+          "frosti_grrrrrrra_freestyle_0",
+          "guzior_wifi_19",
+          "gedz_otchłań_14",
+          "białas_i_poszedł_7"
+        ],
+        "top_1_found": "guzior_wifi_18"
+      }
+    },
+    {
+      "query": "Co robi gruba na imprezie?",
+      "expected_id": "deys_stempel_call_24",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "gruby_mielzky_poprawiny_(bauns_gruby)_48",
+          "deys_stempel_call_24",
+          "peja_gruba_impra_z_rysiem_2_41",
+          "peja_gruba_impra_z_rysiem_2_43",
+          "peja_gruba_impra_z_rysiem_2_42"
+        ],
+        "top_1_found": "gruby_mielzky_poprawiny_(bauns_gruby)_48"
+      }
+    },
+    {
+      "query": "co ze mam robić, wszystko się zmienia",
+      "expected_id": "te-tris_#hot16challenge2_26",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "chada_kiedy_jak_nie_dziś_6",
+          "bonus_rpk_z_deszczu_pod_rynnę_31",
+          "małpa_ból_8",
+          "dudek_p56_kolejny_dzień_3",
+          "firma_brat_47"
+        ],
+        "top_1_found": "chada_kiedy_jak_nie_dziś_6"
+      }
+    },
+    {
+      "query": "nie ma sensu się kłócić, potrzebuję adwokata.",
+      "expected_id": "blacha_2115_pokerface_16",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "blacha_2115_pokerface_4",
+          "blacha_2115_pokerface_16",
+          "blacha_2115_pokerface_11",
+          "vkie_już_późno_ale_pieniądz_nie_śpi_5",
+          "3y_gun_kara_bangla_12"
+        ],
+        "top_1_found": "blacha_2115_pokerface_4"
+      }
+    },
+    {
+      "query": "cześć, co tam w nowym roku?",
+      "expected_id": "dudek_p56_ej,_ziomeczku_36",
+      "intent": {
+        "expected": "GREETING",
+        "actual": "GREETING",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bonus_rpk_taka_prawda_19",
+          "janusz_walczuk_cześć,_jestem_jaś_1",
+          "belmondo_dzień_dobry_2",
+          "blacha_2115_vibe_22",
+          "bonson_pozory_0"
+        ],
+        "top_1_found": "bonus_rpk_taka_prawda_19"
+      }
+    },
+    {
+      "query": "czuję presję, żeby być alpha, a nie miłym gościem",
+      "expected_id": "wdowa_to_by_było_coś_19",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "gruby_mielzky_silny_jak_nigdy,_wkurwiony_jak_zwykle_19",
+          "bonson_almost_famous_2",
+          "dwa_sławy_diabelskie_podszepty_28",
+          "eldo_skała_samobójców_20",
+          "grubson_jamajkamam2_20"
+        ],
+        "top_1_found": "gruby_mielzky_silny_jak_nigdy,_wkurwiony_jak_zwykle_19"
+      }
+    },
+    {
+      "query": "mam problem z bratem, co radzisz?",
+      "expected_id": "vkie_dam_ci_porady_13",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "o.s.t.r._psychologia_tłumu_19",
+          "firma_brat_ii_48",
+          "pono_zabij_wątpliwości_18",
+          "bedoes_2115_rivendell_14",
+          "dixon37_tylko_raz_14"
+        ],
+        "top_1_found": "o.s.t.r._psychologia_tłumu_19"
+      }
+    },
+    {
+      "query": "Tylko sobie żartuje",
+      "expected_id": "gedz_onigiri_4",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "białas_jak_skepta_11",
+          "peja_na_tych_ulicach_55",
+          "liroy_twoya_coorka_28",
+          "adma_tak_to_wygląda_37",
+          "rogal_ddl_2xplatyna_9"
+        ],
+        "top_1_found": "białas_jak_skepta_11"
+      }
+    },
+    {
+      "query": "wieczorem na bloku to nie jest bezpiecznie",
+      "expected_id": "donguralesko_parę_słów_0",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "chada_dranie_tak_mają_11",
+          "beteo_złoty_sikor,_złoty_wisior_20",
+          "bonus_rpk_jest_jak_jest_8",
+          "bonson_almost_famous_29",
+          "donguralesko_parę_słów_0"
+        ],
+        "top_1_found": "chada_dranie_tak_mają_11"
+      }
+    },
+    {
+      "query": "nie chce mi się iść do pracy",
+      "expected_id": "wdowa_zbyt_dobra_16",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "firma_brat_ii_8",
+          "taco_hemingway_karimata_(mute)_4",
+          "dudek_p56_kolejny_dzień_13",
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_8",
+          "dudek_p56_jak_pragnę_22"
+        ],
+        "top_1_found": "firma_brat_ii_8"
+      }
+    },
+    {
+      "query": "mam stres, serce mi szaleje, coś muszę zrobić.",
+      "expected_id": "o.s.t.r._all_my_life_15",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "zbuku_coś_ze_mną_nie_tak_32",
+          "bober_jak_ty_24",
+          "gedz_niebo_nie_jest_limitem_6",
+          "chada_to_nie_nasz_klimat_5",
+          "paluch_bez_strachu_7"
+        ],
+        "top_1_found": "zbuku_coś_ze_mną_nie_tak_32"
+      }
+    },
+    {
+      "query": "wypiję całą butelkę sam, jestem cham?",
+      "expected_id": "yung_adisz_jebac_suki_chce_byc_sam_16",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "diho_olewam_2",
+          "diho_olewam_34",
+          "diho_olewam_9",
+          "mata_gombao_33_33",
+          "white_2115_riri_15"
+        ],
+        "top_1_found": "diho_olewam_2"
+      }
+    },
+    {
+      "query": "widzę idiotoów w okół, którzy źle się patrzą",
+      "expected_id": "taco_hemingway_krwawa_jesień_27",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "liroy_twoya_coorka_28",
+          "otsochodzi_euforia_20",
+          "szpaku_zombie_6",
+          "blacha_2115_lele_14",
+          "beteo_złoty_sikor,_złoty_wisior_2"
+        ],
+        "top_1_found": "liroy_twoya_coorka_28"
+      }
+    },
+    {
+      "query": "pali się, potrzebuję czegoś, co mnie ostudzi",
+      "expected_id": "donguralesko_za_legalizacjom_4",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "dixon37_jestem_z_tobą_43",
+          "paluch_bez_strachu_7",
+          "undadasea_piątunio_7",
+          "białas_i_poszedł_8",
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_8"
+        ],
+        "top_1_found": "dixon37_jestem_z_tobą_43"
+      }
+    },
+    {
+      "query": "facet ma życie pełne blizn i krzywd",
+      "expected_id": "bonus_rpk_sportowa_warszawa_44",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "3y_gun_kara_bunt_6",
+          "bonus_rpk_ucz_syna_21",
+          "bonus_rpk_sportowa_warszawa_44",
+          "bedoes_2115_kwiat_polskiej_młodzieży_38",
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_8"
+        ],
+        "top_1_found": "3y_gun_kara_bunt_6"
+      }
+    },
+    {
+      "query": "ludzie wszystko za mnie myślą, to mało optymistyczne.",
+      "expected_id": "o.s.t.r._psychologia_tłumu_1",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "o.s.t.r._psychologia_tłumu_1",
+          "firma_przyjedź_do_krk_11",
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_3",
+          "eldo_mędrcy_z_kosmosu_21",
+          "ero_jwp_piątek_trzynastego_22"
+        ],
+        "top_1_found": "o.s.t.r._psychologia_tłumu_1"
+      }
+    },
+    {
+      "query": "co radzisz, gdy wszystko jest trudne?",
+      "expected_id": "sobota_jesteś_już_mój,_jesteś_już_moja_3",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bezczel_czarne_róże_0",
+          "grammatik_sposoby_24",
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_8",
+          "borixon_vitaminy_12",
+          "frosti_160_bars_(trap&nowy_picador)_11"
+        ],
+        "top_1_found": "bezczel_czarne_róże_0"
+      }
+    },
+    {
+      "query": "zabrałem dwie i teraz co robić?",
+      "expected_id": "malik_montana_robię_yeah_3",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "slowez_więcej_grzechów_nie_pamiętam_1",
+          "łona_i_webber_nie_mam_pojęcia_2",
+          "małpa_ból_8",
+          "slowez_więcej_grzechów_nie_pamiętam_13",
+          "liroy_..._i_co_dalej?!_29"
+        ],
+        "top_1_found": "slowez_więcej_grzechów_nie_pamiętam_1"
+      }
+    },
+    {
+      "query": "chcę zrobić duży remont, szukam inspiracji",
+      "expected_id": "pono_nie_ukrywam,_że..._22",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SEARCH_TOPIC",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "borixon_inspiracje_1",
+          "borixon_inspiracje_10",
+          "ero_jwp_lista_rzeczy_18",
+          "bonus_rpk_szarość_zwykłego_dnia_28",
+          "gedz_ghostwriter_39"
+        ],
+        "top_1_found": "borixon_inspiracje_1"
+      }
+    },
+    {
+      "query": "życie pędzi, czas się zatrzymać",
+      "expected_id": "fisz_stop_13",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bezczel_czarne_róże_1",
+          "zip_skład_lepsze_życie_22",
+          "bezczel_teraz_albo_nigdy_4",
+          "gedz_panamera_9",
+          "grammatik_moja_historia_2_27"
+        ],
+        "top_1_found": "bezczel_czarne_róże_1"
+      }
+    },
+    {
+      "query": "kurwa, muszę skończyć te gadkę, bo czekają na mnie sznycle.",
+      "expected_id": "łona_i_webber_kończ_tę_rozmowę_(honyszke_kojok)_10",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "undadasea_997_20",
+          "onar_teraz_ty_jesteś_pragnienie_10",
+          "bambi_big_big_girl_4",
+          "asster_all_day_fresh_10",
+          "białas_swoosh_gang_23"
+        ],
+        "top_1_found": "undadasea_997_20"
+      }
+    },
+    {
+      "query": "potrzebuję więcej miłości w życiu, brakuje cudów",
+      "expected_id": "fisz_balon_23",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "QUESTION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "dudek_p56_polski_rap_24",
+          "dudek_p56_polski_rap_4",
+          "dudek_p56_polski_rap_23",
+          "dudek_p56_jak_pragnę_7",
+          "fisz_balon_23"
+        ],
+        "top_1_found": "dudek_p56_polski_rap_24"
+      }
+    },
+    {
+      "query": "jebiąc internet, kim jestem naprawdę?",
+      "expected_id": "zeamsone_nie_interesuje_28",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "zeamsone_nie_interesuje_28",
+          "bonus_rpk_zamknij_pysk_2",
+          "frosti_puzzle_5",
+          "zeamsone_to_nie_anioł_3",
+          "dudek_p56_jak_pragnę_34"
+        ],
+        "top_1_found": "zeamsone_nie_interesuje_28"
+      }
+    },
+    {
+      "query": "czy myślisz o życiu?",
+      "expected_id": "mata_100_dni_do_matury_6",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "liroy_scyzoryk_69",
+          "liroy_scyzoryk_16",
+          "liroy_scyzoryk_(soft_bass_mix)_16",
+          "grammatik_nie_ma_czasu_pomyśleć_10",
+          "dudek_p56_czas_płynie_5"
+        ],
+        "top_1_found": "liroy_scyzoryk_69"
+      }
+    },
+    {
+      "query": "nie mam prawka, a chcę nowe auto",
+      "expected_id": "beteo_nowe_auta_17",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": true,
+        "found_ids": [
+          "beteo_nowe_auta_2",
+          "beteo_nowe_auta_5",
+          "beteo_nowe_auta_10",
+          "bober_poradnik_sukcesu_1",
+          "young_multi_skrrrt_31"
+        ],
+        "top_1_found": "beteo_nowe_auta_2"
+      }
+    },
+    {
+      "query": "szanuję ludzi za to kim są, a nie za to co posiadają",
+      "expected_id": "bedoes_2115_1998_(mam_to_we_krwi)_0",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "GREETING",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bedoes_2115_gustaw_13",
+          "jan-rapowanie_ruchy_21",
+          "peja_grand_champ_5",
+          "firma_brat_ii_51",
+          "bonus_rpk_ucz_syna_7"
+        ],
+        "top_1_found": "bedoes_2115_gustaw_13"
+      }
+    },
+    {
+      "query": "siedzę na ławce, a przy mnie opiekun",
+      "expected_id": "peja_na_tych_ulicach_47",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "białas_czekam_na_ciebie_11",
+          "taco_hemingway_influenza_16",
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_8",
+          "pelson_proste_przyjemności_27",
+          "alcomindz_mafia_dziewczyno_3_1"
+        ],
+        "top_1_found": "białas_czekam_na_ciebie_11"
+      }
+    },
+    {
+      "query": "gubię się w życiu, czuję się w labiryncie",
+      "expected_id": "eldo_przylądek_milczenia_4",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "gedz_labirynt_22",
+          "gedz_labirynt_17",
+          "grammatik_wiatrucień_4",
+          "grammatik_wiatrucień_0",
+          "grammatik_wiatrucień_3"
+        ],
+        "top_1_found": "gedz_labirynt_22"
+      }
+    },
+    {
+      "query": "Zawdzięczam ci życie, dzięki i cześć",
+      "expected_id": "wdowa_#hot16challenge_15",
+      "intent": {
+        "expected": "GREETING",
+        "actual": "GREETING",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "aleshen_freestyle_(red_bull_64_bars)_36",
+          "onar_teraz_ty_jesteś_pragnienie_10",
+          "jan-rapowanie_012_16",
+          "bober_czarek_30",
+          "bonus_rpk_mętne_życie_ulicy_11"
+        ],
+        "top_1_found": "aleshen_freestyle_(red_bull_64_bars)_36"
+      }
+    },
+    {
+      "query": "Kasa się skończyła, a ludzie gadają co teraz?",
+      "expected_id": "malik_montana_ciach_bajera_25",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "taco_hemingway_6_zer_0",
+          "jan-rapowanie_wszystko_ok_2",
+          "bober_witam_2k19_0",
+          "bonus_rpk_jest_jak_jest_32",
+          "bezczel_ko_(szpaku_diss)_14"
+        ],
+        "top_1_found": "taco_hemingway_6_zer_0"
+      }
+    },
+    {
+      "query": "To bóg przemawia przeze mnie na backstage",
+      "expected_id": "bedoes_2115_jumpman_28",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "bedoes_2115_jumpman_28",
+          "young_multi_trap_20",
+          "borixon_alibaba_10",
+          "sarius_zapomnij_o_mnie_5",
+          "ero_jwp_kiedy_wchodzę..._9"
+        ],
+        "top_1_found": "bedoes_2115_jumpman_28"
+      }
+    },
+    {
+      "query": "Ale się naćpałem, a te dziewczyny błyszczą",
+      "expected_id": "yung_adisz_nike_4",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bezczel_idą_asy_w_klub_32",
+          "deys_stempel_call_23",
+          "bambi_to_nie_ma_znaczenia_11",
+          "bedoes_2115_05:05_8",
+          "dwa_sławy_buty_do_wódy_0"
+        ],
+        "top_1_found": "bezczel_idą_asy_w_klub_32"
+      }
+    },
+    {
+      "query": "Mam zajebistą laske i dom",
+      "expected_id": "eis_w_szponach_melanżu_13",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "blacha_2115_trap_sims_28",
+          "rogal_ddl_day_05_-_tanto_23",
+          "kizo_pegaz_24",
+          "beteo_złoty_sikor,_złoty_wisior_2",
+          "asster_waterproof_31"
+        ],
+        "top_1_found": "blacha_2115_trap_sims_28"
+      }
+    },
+    {
+      "query": "Jestem mistrzem, mam pełno kasy",
+      "expected_id": "kizo_czempion_7",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "eis_teraz_albo_nigdy_4",
+          "eis_polski_sen_3",
+          "asster_urus_13",
+          "blacha_2115_trap_living_22",
+          "bezczel_proforma_2_remix_10"
+        ],
+        "top_1_found": "eis_teraz_albo_nigdy_4"
+      }
+    },
+    {
+      "query": "Mam ogromnego jointa do jarania",
+      "expected_id": "bas_tajpan_protest_13",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "kukon_wirtualny_diler_11",
+          "małolat_w_tej_grze_7",
+          "kizo_tryb_komfort_19",
+          "yung_adisz_trudne_czasy_25",
+          "białas_jeden_żyć_19"
+        ],
+        "top_1_found": "kukon_wirtualny_diler_11"
+      }
+    },
+    {
+      "query": "Żegnam się ziomek",
+      "expected_id": "diho_inspiracja_9",
+      "intent": {
+        "expected": "GREETING",
+        "actual": "GREETING",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "dudek_p56_od_zawsze_na_zawsze_40",
+          "borixon_yerba_7",
+          "beteo_love_show_9",
+          "słoń_(pol)_szepty,_krzyki_39",
+          "gang_albanii_ale_tu_jebie_skunem_23"
+        ],
+        "top_1_found": "dudek_p56_od_zawsze_na_zawsze_40"
+      }
+    },
+    {
+      "query": "Czy interesuje cie matematyka?",
+      "expected_id": "janusz_walczuk_droga_wojownika_1",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "grammatik_nie_ma_czasu_pomyśleć_20",
+          "borixon_melodyjki_5",
+          "jwp_matematyk_9",
+          "jwp_matematyk_11",
+          "filipek_waszemu_idolowi_wpierdol_spuściłem_[koldi_diss]_38"
+        ],
+        "top_1_found": "grammatik_nie_ma_czasu_pomyśleć_20"
+      }
+    },
+    {
+      "query": "W moim kubku narkotyk i unosze się w góre",
+      "expected_id": "janusz_walczuk_łakomy_kąsek_21",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "donguralesko_alphabet_challenge_49",
+          "fagata_wyglądam_dobrze_5",
+          "diho_lewandowski_7",
+          "diho_olewam_11",
+          "chada_żyć_aż_do_bólu_23"
+        ],
+        "top_1_found": "donguralesko_alphabet_challenge_49"
+      }
+    },
+    {
+      "query": "Jestem nad morzem w wakacje",
+      "expected_id": "gang_albanii_wakacyjna_miłość_18",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": true,
+        "found_ids": [
+          "gang_albanii_wakacyjna_miłość_19",
+          "blacha_2115_sex_on_the_beach_9",
+          "diho_fuck_you_18",
+          "diho_fuck_you_19",
+          "chada_żyć_aż_do_bólu_4"
+        ],
+        "top_1_found": "gang_albanii_wakacyjna_miłość_19"
+      }
+    },
+    {
+      "query": "Wydałem swój nowy kawałek solowy i mam złoto",
+      "expected_id": "adma_tak_to_wygląda_11",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "adma_tak_to_wygląda_12",
+          "blacha_2115_lele_14",
+          "otsochodzi_euforia_21",
+          "adma_tak_to_wygląda_11",
+          "diho_szyby_4"
+        ],
+        "top_1_found": "adma_tak_to_wygląda_12"
+      }
+    },
+    {
+      "query": "Jestem krórem, a ona królową",
+      "expected_id": "gang_albanii_wita_was_król_18",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "fagata_bandycka_jazda_15",
+          "donguralesko_grube_jointy_27",
+          "gang_albanii_wita_was_król_18",
+          "donguralesko_grube_jointy_28",
+          "borixon_alibaba_9"
+        ],
+        "top_1_found": "fagata_bandycka_jazda_15"
+      }
+    },
+    {
+      "query": "Wydałem ziomka na policji, bo bałem się kary",
+      "expected_id": "bonus_rpk_zachowanie_podłe_20",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "chada_zwykły_facet_11",
+          "bonus_rpk_zachowanie_podłe_27",
+          "bonson_mvp_15",
+          "beteo_złoty_sikor,_złoty_wisior_2",
+          "guzior_uppercut_4"
+        ],
+        "top_1_found": "chada_zwykły_facet_11"
+      }
+    },
+    {
+      "query": "Mam zajebisty komfort",
+      "expected_id": "kizo_tryb_komfort_15",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "asster_waterproof_31",
+          "gang_albanii_napad_na_burdel_0",
+          "blacha_2115_trap_sims_28",
+          "dwa_sławy_halo?_20",
+          "fagata_bulletproof_2"
+        ],
+        "top_1_found": "asster_waterproof_31"
+      }
+    },
+    {
+      "query": "Musze oddać hajs ziomkowi",
+      "expected_id": "bonus_rpk_szarość_zwykłego_dnia_13",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "białas_i_poszedł_8",
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_8",
+          "chada_to_nie_nasz_klimat_5",
+          "sarius_najshajs_22",
+          "białas_w_imię_ojca_trapu_0"
+        ],
+        "top_1_found": "białas_i_poszedł_8"
+      }
+    },
+    {
+      "query": "Goniła mnie policja, a miałem w gaciach towar.",
+      "expected_id": "peja_nie_pogrywaj_ze_mną_13",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "filipek_polski_freestyle_ma_się_dobrze_6",
+          "kabe_wracam_do_gry_12",
+          "donguralesko_parę_słów_1",
+          "bonson_almost_famous_29",
+          "bonus_rpk_zachowanie_podłe_27"
+        ],
+        "top_1_found": "filipek_polski_freestyle_ma_się_dobrze_6"
+      }
+    },
+    {
+      "query": "Życie mnie powala, co się liczy?",
+      "expected_id": "pono_tabu_-_temat_zakazany_(korzeń_remix)_13",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "SITUATION",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "dudek_p56_jak_pragnę_22",
+          "chada_to_nie_nasz_klimat_5",
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_8",
+          "grubson_naprawimy_to_17",
+          "dudek_p56_kocham_życie_9"
+        ],
+        "top_1_found": "dudek_p56_jak_pragnę_22"
+      }
+    },
+    {
+      "query": "Karuzela życia się kręci dalej",
+      "expected_id": "aleshen_nie_chcę_wyjść_z_tego_7",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "gedz_panamera_9",
+          "gedz_panamera_23",
+          "zip_skład_lepsze_życie_46",
+          "gedz_destruction_derby_16",
+          "gedz_panamera_25"
+        ],
+        "top_1_found": "gedz_panamera_9"
+      }
+    },
+    {
+      "query": "Jeszcze jedno piwko na Żoliborzu.",
+      "expected_id": "janusz_walczuk_wracam_na_żoliborz_8",
+      "intent": {
+        "expected": "BRAGGA",
+        "actual": "BRAGGA",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "gang_albanii_albańskie_kakao_29",
+          "diho_szampana_do_ręki_12",
+          "diho_szampana_do_ręki_20",
+          "blacha_2115_bez_moich_braci_35",
+          "alcomindz_mafia_dzikołak_6"
+        ],
+        "top_1_found": "gang_albanii_albańskie_kakao_29"
+      }
+    },
+    {
+      "query": "Dla kogo jest właściwie to gówno?",
+      "expected_id": "małpa_właśnie_ty_18",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "BRAGGA",
+        "ok": false
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "blacha_2115_lele_0",
+          "pih_co_było_a_nie_jest_22",
+          "ero_jwp_rzeźnik_16",
+          "liroy_twoya_coorka_28",
+          "beteo_złoty_sikor,_złoty_wisior_2"
+        ],
+        "top_1_found": "blacha_2115_lele_0"
+      }
+    },
+    {
+      "query": "Co robić jak dzieczyna prosi mnie o trawkę?",
+      "expected_id": "blacha_2115_laleh_0",
+      "intent": {
+        "expected": "QUESTION",
+        "actual": "QUESTION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": true,
+        "soft_hit": true,
+        "found_ids": [
+          "bonus_rpk_kalkulator_28",
+          "białas_life_after_death_(śliwa_diss)_25",
+          "żabson_trapczan_4",
+          "blacha_2115_laleh_0",
+          "bonus_rpk_kalkulator_30"
+        ],
+        "top_1_found": "bonus_rpk_kalkulator_28"
+      }
+    },
+    {
+      "query": "Nie mam siana, jest mi ciężko, a mama się martwi.",
+      "expected_id": "żabson_do_ziomów_25",
+      "intent": {
+        "expected": "SITUATION",
+        "actual": "SITUATION",
+        "ok": true
+      },
+      "retrieval": {
+        "strict_hit": false,
+        "soft_hit": false,
+        "found_ids": [
+          "bedoes_2115_gustaw_4",
+          "białas_mamo,_sięgam_gwiazd_14",
+          "bonus_rpk_nie_ma_dróg_bez_wyjścia_8",
+          "kacper_hta_droga_mamo_10",
+          "frosti_za_sobą_5"
+        ],
+        "top_1_found": "bedoes_2115_gustaw_4"
+      }
+    }
+  ]
+}
