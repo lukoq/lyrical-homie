@@ -1,7 +1,7 @@
 [
   {
     "test_id": "pokahontaz_średniowiecze_20",
-    "query": "Fani  mi mówią, że jestem zajebisty, a ja spoglądam",
+    "query": "Fani mi mówią, że wbijam na top ranking, a ja spoglądam na szklanki",
     "expected_intent": "BRAGGA",
     "expected_child": "Mówią mi fani i fanki, że osiągnąłem top ranking\nA ja jak na cuda-wianki spoglądam na te pół szklanki",
     "expected_artist": "Pokahontaz"
@@ -15,63 +15,63 @@
   },
   {
     "test_id": "otsochodzi_janka_rap_22",
-    "query": "Mordo, nie znam tego, czemu mam się kłaniać przed tym rapem?",
+    "query": "Czy jak będą mnie znać i słuchać, to będę miał kase?",
     "expected_intent": "QUESTION",
     "expected_child": "Znacie nas, słuchacie nas, w temacie rap nie macie szans\nNie chodzi o forsę, chodzi o postęp, zabawę i takie tam...",
     "expected_artist": "Otsochodzi"
   },
   {
     "test_id": "yung_adisz_dno_6",
-    "query": "Co tam u Ciebie ziomek, dawno się nie odzywałeś?",
-    "expected_intent": "QUESTION",
+    "query": "Nie gadam z tobą, bo mam doła",
+    "expected_intent": "SITUATION",
     "expected_child": "Co się nie odzywasz mane?\nJeśli masz doła to weź line'a cocaine",
     "expected_artist": "Yung Adisz"
   },
   {
     "test_id": "jędker_hejter_11",
-    "query": "Szukam sposobu, żeby wreszcie pokochać sam siebie.",
-    "expected_intent": "SITUATION",
+    "query": "Jestem pozytywny i ucze ludzi kochać",
+    "expected_intent": "BRAGGA",
     "expected_child": "Kreuję pozytyw, to się ziści\nW szkole będą kiedyś uczyć miłości",
     "expected_artist": "Jędker"
   },
   {
     "test_id": "łona_i_webber_woodstock_’89_18",
-    "query": "Mordo, znowu tego nie widze.",
-    "expected_intent": "SITUATION",
+    "query": "Czy można powiedzieć coś o niezauważalnym zjawisku?",
+    "expected_intent": "QUESTION",
     "expected_child": "Tyle jest marnych zjawisk, zauważalnych ledwo co\nO których nic mądrego nie powiesz mi poza tym, że na pewno są",
     "expected_artist": "Łona i Webber"
   },
   {
     "test_id": "taconafide_leonardo_16",
-    "query": "Wjeżdżam w to towarzystwo jak szef, nie potrzebuję sceny by błyszczeć. Ona chce tego sama, co ja.",
-    "expected_intent": "BRAGGA",
+    "query": "Ona patrzy na mnie, kiedy gram.",
+    "expected_intent": "SITUATION",
     "expected_child": "Ona wciąż pragnie tej sławy\nChce stać tu na scenie gdy gram (ty no, u mnie też)",
     "expected_artist": "TACONAFIDE"
   },
   {
     "test_id": "pro8l3m_rotterdam_2",
-    "query": "Mordo, znowu mam dziwne sny od ktrych płacze.",
+    "query": "Znowu mam dziwne sny od których płacze.",
     "expected_intent": "SITUATION",
     "expected_child": "Sny snują się po mieście jak pizdy po Luwrze\nDni płyną cierpliwie jak łzy po pudrze",
     "expected_artist": "PRO8L3M"
   },
   {
     "test_id": "peja_czas_hardcoru_16",
-    "query": "Zbudowałem cały skład, czas na nowe brzmienie.",
+    "query": "Zbudowałem cały skład i kumpluje się z Krzyśkiem.",
     "expected_intent": "BRAGGA",
     "expected_child": "Powstał R.R.X. i Klan, i to dzięki mnie, filistrze\nMożesz tylko mi dziękować, że się skumplowałem z Krzyśkiem",
     "expected_artist": "Peja"
   },
   {
     "test_id": "bonson_martwy_król_29",
-    "query": "Mordo, powiesz coś wiecej?",
+    "query": "Mordo, powiesz mi coś wiecej?",
     "expected_intent": "QUESTION",
     "expected_child": "Chcesz wiedzieć więcej? Oddaj głos osiedlom\nTym, którzy są wciąż ze mną",
     "expected_artist": "Bonson"
   },
   {
     "test_id": "asster_pretensje_(bonus_track)_2",
-    "query": "Iluminati? Chyba nie wiecie o czym mówicie. Monumenty są wszędzie, ale wy niczego nie dostrzegacie.",
+    "query": "Iluminati to moje ziomki. Jesteśmy jak monument.",
     "expected_intent": "SITUATION",
     "expected_child": "Iluminati, bo wszystko to widzę i mam swoje głowy jak sektę (Yeah)\nInterpretuje to każdy inaczej, jak „Monument” — Ty masz pretensje (Prr)",
     "expected_artist": "Asster"
@@ -85,42 +85,42 @@
   },
   {
     "test_id": "dwa_sławy_mogłoby_się_wydawać_23",
-    "query": "Czy widze duchy czy nie?",
+    "query": "Czy widze duchy czy mi się wydaje?",
     "expected_intent": "QUESTION",
     "expected_child": "Tylko ci się wydaje\nTylko ci się wydaje",
     "expected_artist": "Dwa Sławy"
   },
   {
     "test_id": "borixon_co_ty_kurwa_chcesz_od_ziomka_2",
-    "query": "Myślę o nowym dresie, co ty ziomuś na to?",
+    "query": "Myślę o nowym dresie Lacoste, co ty ziomuś na to?",
     "expected_intent": "QUESTION",
     "expected_child": "Co ty, kurwa, chcesz od ziomka?\nMyślę o sklepie, w którym wisi piękny dres Lacoste",
     "expected_artist": "Borixon"
   },
   {
     "test_id": "peja_wszystko_na_mój_koszt_44",
-    "query": "Co mam zrobić z tym leszczem?",
+    "query": "Co zrobić z nim i na czyj koszt?",
     "expected_intent": "QUESTION",
     "expected_child": "Dobrze wiem, co z nim zrobić – Tedego pobić\nWszystko na mój koszt, tak to się robi",
     "expected_artist": "Peja"
   },
   {
     "test_id": "żabson_do_ziomów_22",
-    "query": "Mordo, ciągle gapię się w telefon zamiast cieszyć się życiem.",
+    "query": "Ciągle jestem schylony, a rap-gra robi kupe",
     "expected_intent": "SITUATION",
     "expected_child": "Od patrzenia w dół już garba mam; Quasimodo\nI wiesz czemu na mnie ta rap-gra tak sra?",
     "expected_artist": "Żabson"
   },
   {
     "test_id": "sentino_rémy_martin_15",
-    "query": "Wjeżdżam w to towarzystwo jak boss z tymi cyferkami na koncie! Daj mi tę datę i dzień, mordo.",
+    "query": "Mam złoty Rolex, który mówi mi jaka jest data",
     "expected_intent": "BRAGGA",
     "expected_child": "Dzień i datę\nBo mój złoty Rollie mówi dzień i datę",
     "expected_artist": "Sentino"
   },
   {
     "test_id": "firma_chorągiewy_19",
-    "query": "Dla kogo mam to robić?",
+    "query": "Wszędzie chorągiewki, więc dla kogo mam to robić?",
     "expected_intent": "QUESTION",
     "expected_child": "Robimy to kurwa dla was, dla ulicy, dla szacunku\nByle chorągiewa głupia nie popsuje wizerunku",
     "expected_artist": "Firma"
@@ -134,36 +134,36 @@
   },
   {
     "test_id": "pono_oddech_0",
-    "query": "Ziomuś, czuję się jakbym był bardzo zmęczony",
+    "query": "Czuję się jakbym był bardzo zmęczony i tracił sens",
     "expected_intent": "SITUATION",
     "expected_child": "Moment, w którym dopada człowieka zmęczenie\nMoment, w którym powoli gubi się znaczenie",
     "expected_artist": "PONO"
   },
   {
     "test_id": "bonus_rpk_anty_fałsz_16",
-    "query": "Nie mam wyboru, muszę to ciągnąć jak robot do wakacji.",
-    "expected_intent": "SITUATION",
+    "query": "Co mam robić ze zmianami klimatu?",
+    "expected_intent": "QUESTION",
     "expected_child": "Nie masz wyboru, klimat jest taki\nMusisz to ciągnąć dopóki są wałki",
     "expected_artist": "Bonus RPK"
   },
   {
     "test_id": "3y_gun_kara_stare_relacje_24",
-    "query": "Mordo, dzwonią mi na mój stary telefon",
+    "query": "Na osiedlu mam luz, bo nie odbieram od nich telefonu",
     "expected_intent": "SITUATION",
     "expected_child": "Chociaż jestem z ośki, to już dzisiaj mam luz\nBo nie odbieram, kiedy dzwonią na Motorolę",
     "expected_artist": "3Y Gun Kara"
   },
   {
     "test_id": "pih_zawsze_muszę_coś_spierdolić_1",
-    "query": "Mordo, czuję się jak skała wśród fal, ale nie wiem co z tym zrobić.",
+    "query": "Źle się czuje, bo ludzie toną",
     "expected_intent": "SITUATION",
     "expected_child": "Czuję się źle, daje słowo\nByć skałą, wokół której toną",
     "expected_artist": "Pih"
   },
   {
     "test_id": "undadasea_oczy_kobry_25",
-    "query": "Kto idzie i ma takie oczy?",
-    "expected_intent": "QUESTION",
+    "query": "Kobry oczy mam, ide ram pam pam",
+    "expected_intent": "BRAGGA",
     "expected_child": "Kobry oczy (kobry oczy, kobry oczy, kobry oczy)\nA pa kto dzisiaj kroczy",
     "expected_artist": "UNDADASEA"
   },
@@ -176,49 +176,49 @@
   },
   {
     "test_id": "taco_hemingway_gelato_17",
-    "query": "Hej ziomuś, wjeżdżam tu, ale co to za impreza bez gelato? Mordo, gdzie są te lody?",
+    "query": "Wjeżdżam tu, ale co to za impreza bez gelato?",
     "expected_intent": "QUESTION",
     "expected_child": "Gelato, gelato\nZapomnij o tym, nie warto, nie warto",
     "expected_artist": "Taco Hemingway"
   },
   {
     "test_id": "miły_atz_rytm_10",
-    "query": "Ten bit jest świetny jak Galapagos i Laos",
+    "query": "Ten bit jest nieziemski jak Galapagos i Laos",
     "expected_intent": "BRAGGA",
     "expected_child": "A basy są wavy jak plaże Galapagos\nTrochę nieziemskie jak Laos",
     "expected_artist": "Miły ATZ"
   },
   {
     "test_id": "young_multi_nie_wiem_41",
-    "query": "Mordo, nie wiem co robić?",
-    "expected_intent": "QUESTION",
+    "query": "Mordo, nie wiem jak to będzie.",
+    "expected_intent": "SITUATION",
     "expected_child": "Nie wiem, nie wiem\nNie wiem jak to będzie, ziom",
     "expected_artist": "Young Multi"
   },
   {
     "test_id": "eldo_granice_10",
-    "query": "Czy mogę go obrazić i powiedzieć coś niemiłego?",
+    "query": "Czy mogę zrobić krok w tył i się zatrzymać?",
     "expected_intent": "QUESTION",
     "expected_child": "To tylko krok, by pomyśleć i się cofnąć\nZatrzymać w gardle słowo, które może kogoś dotknąć",
     "expected_artist": "Eldo"
   },
   {
     "test_id": "gedz_247365_38",
-    "query": "Ej ziom, hajs się mnie trzyma ostatnio.",
+    "query": "Hajs się mnie ostatnio trzyma i życie spoko jest",
     "expected_intent": "BRAGGA",
     "expected_child": "Moje życie spoko\nBo dawno za sobą mam za hajsem pogoń",
     "expected_artist": "Gedz"
   },
   {
     "test_id": "young_multi_młody_manson_14",
-    "query": "Siema, wbijam w pogo z diamentowym chainem.",
+    "query": "Wbijam nieśmiertelny w pogo z diamentowym chainem.",
     "expected_intent": "BRAGGA",
     "expected_child": "I te diamentowe chainy\nW pogo sami nieśmiertelni (Sami nieśmiertelni)",
     "expected_artist": "Young Multi"
   },
   {
     "test_id": "bezczel_nie_umiemy_żyć_ze_sobą,_nie_możemy_żyć_bez_siebie_19",
-    "query": "Mordo, mam trudny charakter i chciałbym zarobić.",
+    "query": "Mam trudny charakter i chciałbym zarobić dla rodziny.",
     "expected_intent": "SITUATION",
     "expected_child": "Mam trudny charakter i jestem tego świadom\nBardzo chciałbym na muzyce zarobić nam na rodzinę, na dom",
     "expected_artist": "Bezczel"
@@ -226,27 +226,27 @@
   {
     "test_id": "peja_richtown_(extended_version)_70",
     "query": "Jestem stąd, a Poznań moim miastem, Jeżyce to mój dom",
-    "expected_intent": "BRAGGA",
+    "expected_intent": "SITUATION",
     "expected_child": "Jestem stąd, jestem stąd, jestem stąd\nPoznań moim miastem, Jeżyce to mój dom",
     "expected_artist": "Peja"
   },
   {
     "test_id": "małolat_w_weekendy_żyjąc_2",
-    "query": "To są te kluby, gdzie urywa się film, mordo",
+    "query": "To są te kluby, gdzie urywa się film i jest mocne światło",
     "expected_intent": "SITUATION",
     "expected_child": "To są te kluby, które dają nam światło\nJest tu alkohol, który daje nam zasnąć",
     "expected_artist": "Małolat"
   },
   {
     "test_id": "te-tris_kopi_luwak_4",
-    "query": "Zakochałem się w lasce pijąc kawe",
+    "query": "Zakochałem się w lasce pijąc kopi luwak",
     "expected_intent": "SITUATION",
     "expected_child": "Miłość jak kopi luwak, kopie jak dobry szuwaks\nA każda Marion szuka tu swojego Robin Hooda",
     "expected_artist": "Te-Tris"
   },
   {
     "test_id": "dwa_sławy_halo?_26",
-    "query": "Co sądzisz o tej nowej apce, którą ściągnąłem? Będę miał jutro problem?",
+    "query": "Czy będę miał jutro problem przez tą aplikacje?",
     "expected_intent": "QUESTION",
     "expected_child": "Obawa o jutro? (Halo!) Jak mówię przez iPhone, kupiony w Stanach\nŚciągam nową aplikacje z nadzieją, że nigdy nie będę jej zmuszony składać",
     "expected_artist": "Dwa Sławy"
@@ -260,147 +260,147 @@
   },
   {
     "test_id": "donguralesko_bangladesz_21",
-    "query": "Mam dość tego syfu, wychodzę z gry.",
+    "query": "Myśle o zmianie branży, bo mam dość melanży",
     "expected_intent": "SITUATION",
     "expected_child": "A może zmienię branże? Wyjdę przez sklep z pamiątkami?\nJebać melanże i tą planszę z pionkami",
     "expected_artist": "donGURALesko"
   },
   {
     "test_id": "szymi_szyms_salam_alaykum_4",
-    "query": "jadę na koncert, coś mi powiedz o trasie",
+    "query": "Jadę samochodem i dzielimy wache",
     "expected_intent": "SITUATION",
     "expected_child": "Salam alaykum, od rana jedziemy tam żebym coś zagrał i wachę dzielimy na pięciu\nJa kocham być w trasie i przez to nie mogę usiedzieć na miejscu",
     "expected_artist": "Szymi Szyms"
   },
   {
     "test_id": "zbuku_mvp_22",
-    "query": "wciąż reprezentuję swoje bloki, nie zapomniałem skąd jestem",
+    "query": "Wciąż reprezentuję swoje bloki, nie zapomniałem gdzie jest Prudnik",
     "expected_intent": "SITUATION",
     "expected_child": "Nadal dla moich ludzi, pamiętam, gdzie jest Prudnik\nChoć tak mało jest perspektyw, się wybiłem, jestem dumny",
     "expected_artist": "ZBUKU"
   },
   {
     "test_id": "małolat_sąsiedzi_35",
-    "query": "psy przyszły po mnie, co teraz?",
+    "query": "Psy przyszły po mnie w cywilu ",
     "expected_intent": "SITUATION",
     "expected_child": "Kiedyś jakieś przyszły do mnie psy po cywilu\nKopali w drzwi, to sąsiedzi zadzwonili po psy",
     "expected_artist": "Małolat"
   },
   {
     "test_id": "o.s.t.r._o_robieniu_bitów_11",
-    "query": "mam siłę, ale już nie wiem jak dalej",
+    "query": "Mam siłę, ale już nie wiem jak dalej dawać rap",
     "expected_intent": "SITUATION",
     "expected_child": "Dopóki mam siłę to trwam tu\nDopóki nie zginę dam rap swój",
     "expected_artist": "O.S.T.R."
   },
   {
     "test_id": "jwp_jebać_25",
-    "query": "co powiedzą, jak zmienię swój los?",
+    "query": "Co robic z losem leżąc na glebie?",
     "expected_intent": "QUESTION",
     "expected_child": "Leżąc na glebie można zmienić dany los\nSiedem, siedem, siedem, razem mamy głos",
     "expected_artist": "JWP"
   },
   {
     "test_id": "małpa_wyjeżdżam_by_wrócić_21",
-    "query": "czekam na kogoś na dworcu, co jest grane?",
+    "query": "Jestem zajęty, a ona jest do mnie w drodze. Co robić?",
     "expected_intent": "QUESTION",
     "expected_child": "Dziś wracam do Ciebie i już jestem w drodze\nWięc zostaw wszystko i przyjdź na dworzec",
     "expected_artist": "Małpa"
   },
   {
     "test_id": "pih_biegnij,_nie_oglądaj_się_0",
-    "query": "czuję się jakbym miał anioła stróża",
+    "query": "W nocy czuje sie jakby księżyc na mnie patrzył.",
     "expected_intent": "SITUATION",
     "expected_child": "Ciemna noc, na drodze gwiezdnej biżuterii księżyc\nA może to ktoś z góry patrzy na nas z przerębli?",
     "expected_artist": "Pih"
   },
   {
     "test_id": "kaz_bałagane_mikołaj_koper_9",
-    "query": "nie śpię bez benzo, pomóż",
+    "query": "Nie śpię bez benzo, pomóż",
     "expected_intent": "SITUATION",
     "expected_child": "Nie mogę spać bez benzo\nNie mogę spać bez benzo",
     "expected_artist": "Kaz Bałagane"
   },
   {
     "test_id": "pezet_droga_10",
-    "query": "sprzedam duszę za penge",
+    "query": "Historia zatoczyła koło, sprzedałem za to dusze",
     "expected_intent": "SITUATION",
     "expected_child": "Niech historia zatoczy koło\nSprzedaj za to duszę diabłu",
     "expected_artist": "Pezet"
   },
   {
     "test_id": "eldo_połamany_ludzik_7",
-    "query": "robię błędy, szukam siły",
+    "query": "Robię błędy, szukam siły by być mistrzem",
     "expected_intent": "SITUATION",
     "expected_child": "Robimy mnóstwo błędów, tracimy głowę dla zmysłów\nChcemy być coraz mocniejsi, myślimy że to droga mistrzów",
     "expected_artist": "Eldo"
   },
   {
     "test_id": "aleshen_rekin_21",
-    "query": "chce być rekin w branży, coś mnie pcha do przodu",
-    "expected_intent": "SITUATION",
+    "query": "Pływam jak rekin w Atalntyku",
+    "expected_intent": "BRAGGA",
     "expected_child": "Po-popłynę przez cały Atlantyk, bo już jestem ready\nTa branża ocean ja jeszcze nie płetwal, jak na razie rekin (Rekin)",
     "expected_artist": "Aleshen"
   },
   {
     "test_id": "undadasea_nie_ma_nas_22",
-    "query": "gdzie jest moje zioło?",
+    "query": "Czy gdzieś to musi być?",
     "expected_intent": "QUESTION",
     "expected_child": "Jak to nie ma? Musi gdzieś być",
     "expected_artist": "UNDADASEA"
   },
   {
     "test_id": "bedoes_2115_napad_28",
-    "query": "chce napaść na bank, mam pengi na designerskie ciuchy",
+    "query": "Chce napaść na bank, aby sobie coś kupić.",
     "expected_intent": "SITUATION",
     "expected_child": "Chcę kupić Pradę, Gucci, niech zabawa trwa\n(Ja chce z tobą napaść na bank!",
     "expected_artist": "Bedoes 2115"
   },
   {
     "test_id": "tede_streetwear_14",
-    "query": "co z modą, każdy chce wyglądać dobrze",
-    "expected_intent": "SITUATION",
+    "query": "Mam twardą głowe i gotowy wchodze w świat mody",
+    "expected_intent": "BRAGGA",
     "expected_child": "Największe tuzy, twarde głowy - świat mody\nI cały świat młody gotowy, aby w tym chodzić",
     "expected_artist": "Tede"
   },
   {
     "test_id": "bober_płyta_dekady_2_6",
-    "query": "czekają na mnie z wymianą, co robic?",
+    "query": "Czy oni chcieli mnie wymienić?",
     "expected_intent": "QUESTION",
     "expected_child": "Ty, czekali na mnie w QQ\nLud chciał wymiany, ale jesteś warty paczkę szlugów",
     "expected_artist": "Bober"
   },
   {
     "test_id": "paluch_amalgamat_21",
-    "query": "chcę mieć po sobie ślad, nie tylko ząb ze złota.",
+    "query": "Chcę mieć po sobie ślad, nie tylko kruchy ząb ze złota.",
     "expected_intent": "SITUATION",
     "expected_child": "A wszystko kruche tak jak tynki w starych bramach\nChcę by został po mnie ślad, nie tyko amalgamat",
     "expected_artist": "Paluch"
   },
   {
     "test_id": "schafter_blur_9",
-    "query": "miała mnie gdzieś, a ja myślałem, że to coś więcej",
-    "expected_intent": "SITUATION",
+    "query": "Czy ty wiesz, że to będzie mezalians?",
+    "expected_intent": "QUESTION",
     "expected_child": "Dla ciebie to i tak mezalians\nI to wszystko, co pisze w tym liście",
     "expected_artist": "schafter"
   },
   {
     "test_id": "donguralesko_co_17",
-    "query": "mam wypite i szukam kolejnego pomysłu",
+    "query": "Jak wypije to mam mnóstwo pomysłów.",
     "expected_intent": "SITUATION",
     "expected_child": "Mam dziwnie pod deklem, gdy tankuję tekle\nPo nich goni patent za patentem",
     "expected_artist": "donGURALesko"
   },
   {
     "test_id": "peja_czas_hardcoru_54",
-    "query": "czy mógłbyś mi podać słowa o wujku?",
+    "query": "Co robił Wujek w Vivie?",
     "expected_intent": "QUESTION",
     "expected_child": "Było tak, że CNE razem z Wujkiem mieli spółkę\nPracowali wtedy w Vivie, więc pomogli tobie kumple",
     "expected_artist": "Peja"
   },
   {
     "test_id": "kaz_bałagane_co_tam_9",
-    "query": "ludzie mnie męczą i pytają co u mnie słychać",
+    "query": "Oni chcą wiedzieć jak mam na naziwsko",
     "expected_intent": "SITUATION",
     "expected_child": "Śmiecie chcą się tarzać w moim gównie\nPoznać, jak mam na nazwisko i dowiedzieć, czym się trudnię",
     "expected_artist": "Kaz Bałagane"
@@ -414,133 +414,133 @@
   },
   {
     "test_id": "te-tris_#hot16challenge2_26",
-    "query": "co ze mam robić, wszystko się zmienia",
-    "expected_intent": "SITUATION",
+    "query": "Co robić, gdy wszystko się zmienia?",
+    "expected_intent": "QUESTION",
     "expected_child": "Zmienia się nic poza miejscem i czasem\nDbaj o bliskich, o siebie, o pracę",
     "expected_artist": "Te-Tris"
   },
   {
     "test_id": "blacha_2115_pokerface_16",
-    "query": "nie ma sensu się kłócić, potrzebuję adwokata.",
+    "query": "Nie ma sensu się kłócić, ale potrzebuję adwokata.",
     "expected_intent": "SITUATION",
     "expected_child": "Nie ma sensu się wykłócać niech pierdolą posłucham\nCałą resztą się już zajmie nie ja tylko mój adwokat",
     "expected_artist": "Blacha 2115"
   },
   {
     "test_id": "dudek_p56_ej,_ziomeczku_36",
-    "query": "cześć, co tam w nowym roku?",
+    "query": "Siema siema, mamy nowy rok!",
     "expected_intent": "GREETING",
     "expected_child": "Dwa zero jeden sześć\nElo cześć witam kocie",
     "expected_artist": "Dudek P56"
   },
   {
     "test_id": "wdowa_to_by_było_coś_19",
-    "query": "czuję presję, żeby być alpha, a nie miłym gościem",
+    "query": "Czuję presję, żeby być alpha, a nie miłym gościem",
     "expected_intent": "SITUATION",
     "expected_child": "Powiedz, że bycie miłym gościem też jest fajne\nPowiedz, że cie presja przerasta na bycie samcem alfa",
     "expected_artist": "WdoWA"
   },
   {
     "test_id": "vkie_dam_ci_porady_13",
-    "query": "mam problem z bratem, co radzisz?",
-    "expected_intent": "QUESTION",
+    "query": "Skocze w ogień za mojego brata.",
+    "expected_intent": "SITUATION",
     "expected_child": "W ogień za brata, Ty ściero, za ogień to pewnie byś swojego brata pociachał\nTał nie wypłata, dwa tały to reszta, a dopiero od dyszki możemy gadać",
     "expected_artist": "vkie"
   },
   {
     "test_id": "gedz_onigiri_4",
-    "query": "Tylko sobie żartuje",
+    "query": "Dzisiaj mamy prima aprilis",
     "expected_intent": "SITUATION",
     "expected_child": "I to nie żarty, choć jest prima aprilis",
     "expected_artist": "Gedz"
   },
   {
     "test_id": "donguralesko_parę_słów_0",
-    "query": "wieczorem na bloku to nie jest bezpiecznie",
-    "expected_intent": "SITUATION",
+    "query": "Ore, ore szabada amore",
+    "expected_intent": "GREETINGS",
     "expected_child": "Ore, ore szabada amore, uważaj synku dokąd chodzisz wieczorem\nBo może ktoś, coś znaleźć się nie w porę",
     "expected_artist": "donGURALesko"
   },
   {
     "test_id": "wdowa_zbyt_dobra_16",
-    "query": "nie chce mi się iść do pracy",
+    "query": "Nie chce mi się iść do pracy",
     "expected_intent": "SITUATION",
     "expected_child": "Nie musisz robić tego czego robić nie chcesz\nStanowisko nie jest warte osobistych wyrzeczeń",
     "expected_artist": "WdoWA"
   },
   {
     "test_id": "o.s.t.r._all_my_life_15",
-    "query": "mam stres, serce mi szaleje, coś muszę zrobić.",
+    "query": "Mam stres, ocean zbawienia i piekło",
     "expected_intent": "SITUATION",
     "expected_child": "Wzburzone tętno jak ocean\nHalo, ziemia, kilka sekund dzieli piekło od zbawienia",
     "expected_artist": "O.S.T.R."
   },
   {
     "test_id": "yung_adisz_jebac_suki_chce_byc_sam_16",
-    "query": "wypiję całą butelkę sam, jestem cham?",
+    "query": "Jeśli wypiję całą butelkę z gwinta, to kim jestem?",
     "expected_intent": "QUESTION",
     "expected_child": "500ml wódki z gwinta to wypije sam\nJeśli znasz mnie przez internet, to wydaję się jak cham",
     "expected_artist": "Yung Adisz"
   },
   {
     "test_id": "taco_hemingway_krwawa_jesień_27",
-    "query": "widzę idiotoów w okół, którzy źle się patrzą",
+    "query": "Widzę idiotoów w okół z dziwnymi gałkami.",
     "expected_intent": "SITUATION",
     "expected_child": "Pasażera gałki oczne są jak lwa, kamienne\nWidzę je wśród idiotycznych przechodniów",
     "expected_artist": "Taco Hemingway"
   },
   {
     "test_id": "donguralesko_za_legalizacjom_4",
-    "query": "pali się, potrzebuję czegoś, co mnie ostudzi",
+    "query": "W telewizji mówią, że coś się pali",
     "expected_intent": "SITUATION",
     "expected_child": "Oni karmić nas chcą swoją wrogą propagandą\nPali się, pali się, pali pani, pali pan to...",
     "expected_artist": "donGURALesko"
   },
   {
     "test_id": "bonus_rpk_sportowa_warszawa_44",
-    "query": "facet ma życie pełne blizn i krzywd",
+    "query": "Facet ma życie pełne blizn i krzywd",
     "expected_intent": "SITUATION",
     "expected_child": "A dzisiaj mężczyzny w mieście które ma swoje blizny\nI swoje krzywdy",
     "expected_artist": "Bonus RPK"
   },
   {
     "test_id": "o.s.t.r._psychologia_tłumu_1",
-    "query": "ludzie wszystko za mnie myślą, to mało optymistyczne.",
+    "query": "Ludzie wszystko za mnie myślą, to mało optymistyczne.",
     "expected_intent": "SITUATION",
     "expected_child": "Czyżby wszyscy chcieli za mnie myśleć dziś\nTo równie łatwe jak z samobójcy zrobić optymistę",
     "expected_artist": "O.S.T.R."
   },
   {
     "test_id": "sobota_jesteś_już_mój,_jesteś_już_moja_3",
-    "query": "co radzisz, gdy wszystko jest trudne?",
+    "query": "Co radzisz, gdy wszystko jest trudne?",
     "expected_intent": "QUESTION",
     "expected_child": "Wiem że to trudne, ale już czas\nOgarnij rozumem i wybierz nas",
     "expected_artist": "Sobota"
   },
   {
     "test_id": "malik_montana_robię_yeah_3",
-    "query": "zabrałem dwie i teraz co robić?",
-    "expected_intent": "QUESTION",
+    "query": "Mam dwie dziewczyny w samochodzie",
+    "expected_intent": "BRAGGA",
     "expected_child": "Przyszedłem sam, zabrałem dwie\nWychodzimy we troje, w samochodzie robię je",
     "expected_artist": "Malik Montana"
   },
   {
     "test_id": "pono_nie_ukrywam,_że..._22",
-    "query": "chcę zrobić duży remont, szukam inspiracji",
+    "query": "Chcę zrobić duży remont, szukam pokemona",
     "expected_intent": "SITUATION",
     "expected_child": "Robię raz dwa, to remont, patrz i ucz się, pokemon\nWchodzę ja. I mój demon i rozniesiemy pół miasta",
     "expected_artist": "PONO"
   },
   {
     "test_id": "fisz_stop_13",
-    "query": "życie pędzi, czas się zatrzymać",
+    "query": "Życie pędzi, czas się zatrzymać",
     "expected_intent": "SITUATION",
     "expected_child": "Choć na chwile przystanąć\nGdy wokół wszystko tak pędzi",
     "expected_artist": "Fisz"
   },
   {
     "test_id": "łona_i_webber_kończ_tę_rozmowę_(honyszke_kojok)_10",
-    "query": "kurwa, muszę skończyć te gadkę, bo czekają na mnie sznycle.",
+    "query": "Muszę skończyć te gadkę, bo czekają na mnie sznycle.",
     "expected_intent": "SITUATION",
     "expected_child": "Isaak, ty kończ tę rozmowę... na ciebie sznycel oczekuje...\nTy kończ te rozmowę... sznycel oczekuje...",
     "expected_artist": "Łona i Webber"
@@ -554,56 +554,56 @@
   },
   {
     "test_id": "zeamsone_nie_interesuje_28",
-    "query": "jebiąc internet, kim jestem naprawdę?",
+    "query": "Czy jebiąc internet, jestem prawdziwy?",
     "expected_intent": "QUESTION",
     "expected_child": "Jebać internet, każdy dziś w nim jest\nKimś innym, niż wszyscy, kimś innym, niż inni, kimś innym, niż myślisz, yeah",
     "expected_artist": "Zeamsone"
   },
   {
     "test_id": "mata_100_dni_do_matury_6",
-    "query": "czy myślisz o życiu?",
+    "query": "Czy życie jest niezłe?",
     "expected_intent": "QUESTION",
     "expected_child": "Że w sumie życie jest niezłe, no bo w sumie jest niezłe",
     "expected_artist": "Mata"
   },
   {
     "test_id": "beteo_nowe_auta_17",
-    "query": "nie mam prawka, a chcę nowe auto",
+    "query": "Nie mam prawka, a chcę nowe auto",
     "expected_intent": "SITUATION",
     "expected_child": "Chcę nowe auta, a nie mam prawka\nTo cały ja! (to cały ja)",
     "expected_artist": "Beteo"
   },
   {
     "test_id": "bedoes_2115_1998_(mam_to_we_krwi)_0",
-    "query": "szanuję ludzi za to kim są, a nie za to co posiadają",
+    "query": "Szanuję ludzi za to kim są, a nie za to co posiadają",
     "expected_intent": "SITUATION",
     "expected_child": "Ty szanujesz ludzi za to, jakie mają zegarki\nJa szanuję samotne matki",
     "expected_artist": "Bedoes 2115"
   },
   {
     "test_id": "peja_na_tych_ulicach_47",
-    "query": "siedzę na ławce, a przy mnie opiekun",
+    "query": "Siedzę na ławce z opiekunem",
     "expected_intent": "SITUATION",
     "expected_child": "Na ławkę wypuszczani jedynie z opiekunami\nStraszeni penerami tak tutaj jesteśmy zwani",
     "expected_artist": "Peja"
   },
   {
     "test_id": "eldo_przylądek_milczenia_4",
-    "query": "gubię się w życiu, czuję się w labiryncie",
-    "expected_intent": "SITUATION",
+    "query": "Labirynt Minotaura, gdzie moja Ariadna?",
+    "expected_intent": "QUESTION",
     "expected_child": "Gdzieś pogubiliśmy się i nie pomogła nam Ariadna\nA każdy zakręt w labiryncie prowadził do Minotaura",
     "expected_artist": "Eldo"
   },
   {
     "test_id": "wdowa_#hot16challenge_15",
-    "query": "Zawdzięczam ci życie, dzięki i cześć",
+    "query": "Joł Chazan, elo cześć, dzięki za życie",
     "expected_intent": "GREETING",
     "expected_child": "Tylko to Chazanowi i etyce każdy z Was zawdzięcza życie\nPif Paf i buziaczki",
     "expected_artist": "WdoWA"
   },
   {
     "test_id": "malik_montana_ciach_bajera_25",
-    "query": "Kasa się skończyła, a ludzie gadają co teraz?",
+    "query": "Czy powininem posłusłuchać się szczekaczy i nie podpisywać weksla?",
     "expected_intent": "QUESTION",
     "expected_child": "Szczekacze znów kończą na suszeniu kłów\nPodpisuj ten weksel, ja chcę teraz już",
     "expected_artist": "Malik Montana"
@@ -617,35 +617,35 @@
   },
   {
     "test_id": "yung_adisz_nike_4",
-    "query": "Ale się naćpałem, a te dziewczyny błyszczą",
+    "query": "Mam niezła faze, a dziewczyny się błyszczą",
     "expected_intent": "BRAGGA",
     "expected_child": "Wszystkie suki tu od brokatu się błyszczą\nOd fazy mam schizę, jakieś głosy w głowie piszczą",
     "expected_artist": "Yung Adisz"
   },
   {
     "test_id": "eis_w_szponach_melanżu_13",
-    "query": "Mam zajebistą laske i dom",
+    "query": "Mam dom jak z Dynastii",
     "expected_intent": "BRAGGA",
     "expected_child": "Laski plus chata jak z Dynastii, igła z woskiem, graj",
     "expected_artist": "Eis"
   },
   {
     "test_id": "kizo_czempion_7",
-    "query": "Jestem mistrzem, mam pełno kasy",
+    "query": "Jestem champion i za niczym nie tęsknie",
     "expected_intent": "BRAGGA",
     "expected_child": "Champion styl tobie przyda się face lift\nKiedyś nic tu nie miałem, dzisiaj mam za czym tęsknić",
     "expected_artist": "Kizo"
   },
   {
     "test_id": "bas_tajpan_protest_13",
-    "query": "Mam ogromnego jointa do jarania",
+    "query": "Joint z Babilonu i radość z Syjonu",
     "expected_intent": "BRAGGA",
     "expected_child": "Płonie, płonie, kolejny joint w Babilonie\nNastępna dusza nasza, radość w Syjonie",
     "expected_artist": "Bas Tajpan"
   },
   {
     "test_id": "diho_inspiracja_9",
-    "query": "Żegnam się ziomek",
+    "query": "Pa pa do zoba i pa pa",
     "expected_intent": "GREETING",
     "expected_child": "Pa pa, pa pa, hmm, hmm, spuszczam się i pa pa",
     "expected_artist": "Diho"
@@ -666,42 +666,42 @@
   },
   {
     "test_id": "gang_albanii_wakacyjna_miłość_18",
-    "query": "Jestem nad morzem w wakacje",
-    "expected_intent": "BRAGGA",
+    "query": "Jestem nad morzem w wakacje 2006",
+    "expected_intent": "SITUATION",
     "expected_child": "Jesteśmy nad morzem, idziemy coś zjeść\nNie wiem, czego są wakacje 2006",
     "expected_artist": "Gang Albanii"
   },
   {
     "test_id": "adma_tak_to_wygląda_11",
-    "query": "Wydałem swój nowy kawałek solowy i mam złoto",
+    "query": "Wydałem swój nowy kawałek solowy i mam złoto, fanów potok",
     "expected_intent": "BRAGGA",
     "expected_child": "Trzecie za mną solo, teraz legal i złoto\nGłoszę słowo by nawrócić ten niewierny potok",
     "expected_artist": "AdMa"
   },
   {
     "test_id": "gang_albanii_wita_was_król_18",
-    "query": "Jestem krórem, a ona królową",
+    "query": "Jestem krórem, a ona piękną królową",
     "expected_intent": "BRAGGA",
     "expected_child": "Wita mnie król i poznaje z królową\nAleż urocza i piękna dama",
     "expected_artist": "Gang Albanii"
   },
   {
     "test_id": "bonus_rpk_zachowanie_podłe_20",
-    "query": "Wydałem ziomka na policji, bo bałem się kary",
-    "expected_intent": "SITUATION",
+    "query": "WCo stanie sie ze mną kiedy fałszywie wydam ziomka przed sądem?",
+    "expected_intent": "QUESTION",
     "expected_child": "Pamiętasz Twoją fałszywą twarz przypałowcu zajebany\nBałeś się sądowej kary, teraz będziesz jebany",
     "expected_artist": "Bonus RPK"
   },
   {
     "test_id": "kizo_tryb_komfort_15",
-    "query": "Mam zajebisty komfort",
+    "query": "Mam zajebisty komfort rapu",
     "expected_intent": "BRAGGA",
     "expected_child": "Wiesz co dla mnie znaczy mieć ten komfort?\nSłuchaj mordo, zacznijmy od rapu",
     "expected_artist": "Kizo"
   },
   {
     "test_id": "bonus_rpk_szarość_zwykłego_dnia_13",
-    "query": "Musze oddać hajs ziomkowi",
+    "query": "Musze oddać hajs ziomkowi bo wisze becel",
     "expected_intent": "SITUATION",
     "expected_child": "Jadę, dalej jadę, muszę oddać becel\nWiszę parę 3 zaległe - nie zachowam się jak pędzel",
     "expected_artist": "Bonus RPK"
@@ -736,21 +736,21 @@
   },
   {
     "test_id": "małpa_właśnie_ty_18",
-    "query": "Dla kogo jest właściwie to gówno?",
+    "query": "Dla kogo jest ten splif i Nike?",
     "expected_intent": "QUESTION",
     "expected_child": "Dla tych, co kiedyś spychali wam splif w knajpach\nI tych, co nawet bez tego chodzą dziś w Nike'ach",
     "expected_artist": "Małpa"
   },
   {
     "test_id": "blacha_2115_laleh_0",
-    "query": "Co robić jak dzieczyna prosi mnie o trawkę?",
+    "query": "Co robić jak dzieczyna prosi mnie o trawkę i LSD?",
     "expected_intent": "QUESTION",
     "expected_child": "Ona chce grass, żebym ogarnął coś jej\nNie ma takich szans i wyciąga LSD",
     "expected_artist": "Blacha 2115"
   },
   {
     "test_id": "żabson_do_ziomów_25",
-    "query": "Nie mam siana, jest mi ciężko, a mama się martwi.",
+    "query": "Nie mam siana, nie mam szczęścia, a mama się martwi.",
     "expected_intent": "SITUATION",
     "expected_child": "O swoje szczęście nie chcę wiecznie żebrać, nie\nMamo nie martw się, wiesz, że nie chcę przegrać, nie",
     "expected_artist": "Żabson"
