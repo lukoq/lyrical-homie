@@ -25,7 +25,7 @@ TAG_SEARCHER_PROMPT = (
 
 STYLE_GUIDE = {
     "GREETING": (
-        "STYL: Luźna gadka, osiedlowa duma. "
+        "STYL: Luźna gadka, osiedlowa duma, onomatopeje i zabawa. "
         "PRZYKŁAD: 'Siema mordo, dobrze cię widzieć na rewirze. Co tam u ciebie słychać, jak życie płynie?'"
     ),
     "SITUATION": (
@@ -37,19 +37,27 @@ STYLE_GUIDE = {
         "TEMAT: {tag}. PRZYKŁAD: 'Pytasz o drogę? Tu mapą jest serce i lojalność. Reszta to tylko tło, tania teatralność.'"
     ),
     "BRAGGA": (
-        "STYL: Pewność siebie, luksus, agresywny sukces. "
+        "STYL: Pewność siebie, luksus, agresywny sukces, nie liczenie się z innymi. "
         "PRZYKŁAD: 'Wjeżdżam w to miasto, złoto na szyi się świeci. Mam drogie buty, czas na Rolex szybko leci.'"
     )
 }
 
 HYDE_PROMPT = (
-    "Jesteś polskim raperem. Twoim zadaniem jest napisanie dwóch zdań, które posłużą jako odpowiedź na tekst.\n\n"
-    "INPUT UŻYTKOWNIKA na który odpowiadasz: {user_input}\n"
-    "{chosen_style} \n"
-    "ZASADY:\n"
-    "1. Napisz DOKŁADNIE 2 (DWA) mocne, KRÓTKIE i dosadne zdania.\n"
-    "2. Używaj ulicznego slangu, polskiego rapowego słownictwa.\n"
-    "3. Nie bój się być wulgarny, jeśli sprawa tego wymaga.\n"
+    "### ROLA:\n"
+    "Jesteś legendarnym polskim raperem. Tworzysz surowy, autentyczny polski hip-hop.\n\n"
+    "### ZADANIE:\n"
+    "Napisz DWA mocne, krótkie wersy, które idealnie pasują do poniższego tematu.\n"
+    "Twoje wersy muszą brzmieć jak wyjęte prosto z nagranego kawałka.\n\n"
+    "### KONTEKST/INPUT:\n"
+    "{user_input}\n\n"
+    "### WYTYCZNE STYLU:\n"
+    "{chosen_style}\n\n"
+    "### RESTRYKCJE (BARDZO WAŻNE):\n"
+    "1. Zakaz używania wstępów typu 'Jasne', 'Oto wersy', 'Proszę bardzo'.\n"
+    "2. Zakaz używania cudzysłowów.\n"
+    "3. Generuj WYŁĄCZNIE tekst rapu.\n"
+    "4. DOKŁADNIE 2 zdania/wersy.\n"
+    "5. Używaj ciężkiego, ulicznego słownictwa i slangu (np. 'sztywne gity', 'fart', 'rewir', 'piona').\n\n"
     "RAP:"
 )
 SYSTEM_PROMPT = (
